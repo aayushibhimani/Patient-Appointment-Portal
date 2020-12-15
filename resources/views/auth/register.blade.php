@@ -133,6 +133,22 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="name" class="col-form-label text-md-right">{{ __('Type') }}</label>
+                                    <div>
+                                        <select name="role" id="role" required autocomplete="off"
+                                            class="form-control @error('role') is-invalid @enderror">
+                                            <option value="Patient">Patient</option>
+                                            <option value="Doctor">Doctor</option>
+                                        </select>
+
+                                        @error('role')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="email"
@@ -144,6 +160,23 @@
                                             value="{{ old('email') }}" required autocomplete="email">
 
                                         @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone"
+                                        class="col-form-label text-md-right">{{ __('Phone Number') }}</label>
+
+                                    <div>
+                                        <input id="mobile_no" type="mobile_no"
+                                            class="form-control @error('mobile_no') is-invalid @enderror"
+                                            name="mobile_no" value="{{ old('mobile_no') }}" required
+                                            autocomplete="mobile_no">
+
+                                        @error('mobile_no')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
