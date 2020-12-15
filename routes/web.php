@@ -24,3 +24,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth','doctor'])->group(function(){
+    Route::resource('doctor', 'App\Http\Controllers\DoctorsController');
+});
+
+Route::middleware(['auth','patient'])->group(function(){
+    Route::resource('patient', 'App\Http\Controllers\PatientsController');
+});

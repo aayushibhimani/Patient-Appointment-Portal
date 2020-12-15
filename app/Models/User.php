@@ -40,4 +40,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isPatient(){
+        return $this->role == 'Patient';
+    }
+    
+    public function isDoctor(){
+        return $this->role == 'Doctor';
+    }
 }
