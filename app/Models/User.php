@@ -42,10 +42,10 @@ class User extends Authenticatable
     ];
 
     public function isPatient(){
-        return $this->role == 'Patient';
+        return $this->role == 'patient';
     }
-    
+
     public function isDoctor(){
-        return $this->role == 'Doctor';
+        return $this->role == 'doctor';
     }
 }

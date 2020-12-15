@@ -12,4 +12,7 @@ class Patient extends Model
     protected $fillable = [
         'dob','blood_group','profile_pic','address'
     ];
+    public function appointments(){
+        return $this->hasMany(Appointment::class);
+    }
 }

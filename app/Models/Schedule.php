@@ -11,4 +11,7 @@ class Schedule extends Model
     protected $fillable = [
         'day','start_time','end_time'
     ];
+    public function appointments(){
+        return $this->hasMany(Appointment::class);
+    }
 }
