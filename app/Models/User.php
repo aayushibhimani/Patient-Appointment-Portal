@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'mobile_no',
+        'role'
     ];
 
     /**
@@ -42,10 +44,10 @@ class User extends Authenticatable
     ];
 
     public function isPatient(){
-        return $this->role == 'patient';
+        return $this->role == 'Patient';
     }
 
     public function isDoctor(){
-        return $this->role == 'doctor';
+        return $this->role == 'Doctor';
     }
 }
