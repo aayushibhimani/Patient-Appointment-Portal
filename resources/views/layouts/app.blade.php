@@ -113,10 +113,8 @@
                     <div class="col-lg-3 col-md-6">
 
                         <!-- Footer Widget -->
-                        <div class="footer-widget footer-about">
-                            <div class="footer-logo">
-                                <img src="assets/img/footer-logo.png" alt="logo">
-                            </div>
+                        <div class="footer-widget footer-about footer-about-content">
+                            <h2 class="text-white mb-3" style="font-weight:700;">Doctor Appointment</h2>
                             <div class="footer-about-content">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt
@@ -188,15 +186,15 @@
                             <div class="footer-contact-info">
                                 <div class="footer-address">
                                     <span><i class="fas fa-map-marker-alt"></i></span>
-                                    <p> 3556 Beech Street, San Francisco,<br> California, CA 94108 </p>
+                                    <p> KJSIEIT, Sion, Mumbai </p>
                                 </div>
                                 <p>
                                     <i class="fas fa-phone-alt"></i>
-                                    +1 315 369 5943
+                                    +91 987 654 3210
                                 </p>
                                 <p class="mb-0">
                                     <i class="fas fa-envelope"></i>
-                                    doccure@example.com
+                                    not@mail.com
                                 </p>
                             </div>
                         </div>
@@ -218,17 +216,14 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-6">
                             <div class="copyright-text">
-                                <p class="mb-0">&copy; 2020 Doccure. All rights reserved.</p>
+                                <p class="mb-0">&copy; 2020 Doctor Appointment.</p>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6">
 
                             <!-- Copyright Menu -->
                             <div class="copyright-menu">
-                                <ul class="policy-menu">
-                                    <li><a href="term-condition.html">Terms and Conditions</a></li>
-                                    <li><a href="privacy-policy.html">Policy</a></li>
-                                </ul>
+                                <div class="text-white policy-menu">Developed by Aayushi, Jay, Krutika, Rishi</div>
                             </div>
                             <!-- /Copyright Menu -->
 
