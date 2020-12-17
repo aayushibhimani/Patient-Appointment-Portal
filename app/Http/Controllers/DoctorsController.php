@@ -16,6 +16,10 @@ class DoctorsController extends Controller
     {
         return view('doctor/dashboard');
     }
+    public function appointments()
+    {
+        return view('doctor/appointments');
+    }
 
     /**
      * Show the form for creating a new resource.
