@@ -24,6 +24,10 @@ class PatientsController extends Controller
     {
         return view('patient/profile');
     }
+    public function doctorProfile()
+    {
+        return view('patient/doctor-profile');
+    }
 
     /**
      * Show the form for creating a new resource.
