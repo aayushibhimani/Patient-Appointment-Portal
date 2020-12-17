@@ -57,14 +57,14 @@
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <label>First Name</label>
-                                        <input type="text" class="form-control" value="Richard">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" value="Richard" readonly>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input type="text" class="form-control" value="Wilson">
+                                        <label>Email ID</label>
+                                        <input type="email" class="form-control" value="richard@example.com" readonly>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
@@ -90,13 +90,8 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label>Email ID</label>
-                                        <input type="email" class="form-control" value="richard@example.com">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
+                                
+                                <div class="col-12 col-md-12">
                                     <div class="form-group">
                                         <label>Mobile</label>
                                         <input type="text" value="+1 202-555-0125" class="form-control">

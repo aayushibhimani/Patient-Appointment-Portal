@@ -49,9 +49,10 @@ Route::get('/patient-profile-settings', [App\Http\Controllers\PatientsController
 
 
 Route::middleware(['auth','doctor'])->group(function(){
-    Route::resource('doctor', 'App\Http\Controllers\DoctorsController');
+   // Route::resource('doctor', 'App\Http\Controllers\DoctorsController');
 });
 
 Route::middleware(['auth','patient'])->group(function(){
-    Route::resource('patient', 'App\Http\Controllers\PatientsController');
+    // Route::resource('patient', 'App\Http\Controllers\PatientsController');
+    Route::get('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'profileSettings'])->name('patient-profile-settings');
 });

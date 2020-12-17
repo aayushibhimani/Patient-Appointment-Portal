@@ -16,7 +16,7 @@ class VerifyPatient
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->isPatient()){
+        if(!auth()->user()->isPatient()){
             return redirect(abort(401));
         }
         return $next($request);
