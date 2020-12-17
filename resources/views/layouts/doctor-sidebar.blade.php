@@ -17,7 +17,7 @@
         <nav class="dashboard-menu">
             <ul>
                 <li>
-                    <a href="{{ route('doctor-dashboard') }}">
+                    <a href="{{ route('home') }}">
                         <i class="fas fa-columns"></i>
                         <span>Dashboard</span>
                     </a>
@@ -46,7 +46,7 @@
                         <span>Invoices</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="reviews.html">
                         <i class="fas fa-star"></i>
                         <span>Reviews</span>
@@ -58,21 +58,21 @@
                         <span>Message</span>
                         <small class="unread-msg">23</small>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ route('doctor-profile-settings') }}">
                         <i class="fas fa-user-cog"></i>
                         <span>Profile Settings</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="social-media.html">
                         <i class="fas fa-share-alt"></i>
                         <span>Social Media</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
-                    <a href="doctor-change-password.html">
+                    <a href="{{ route('change-password') }}">
                         <i class="fas fa-lock"></i>
                         <span>Change Password</span>
                     </a>

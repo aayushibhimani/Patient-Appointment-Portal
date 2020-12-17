@@ -31,6 +31,10 @@ class DoctorsController extends Controller
     {
         return view('doctor/profile');
     }
+    public function patientProfile()
+    {
+        return view('doctor/patient-profile');
+    }
 
 
 //     End of return Views

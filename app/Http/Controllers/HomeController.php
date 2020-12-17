@@ -26,4 +26,10 @@ class HomeController extends Controller
         $user = Auth::user();
         return view('home')->with('user', $user);
     }
+
+    public function changePassword()
+    {
+        $user = Auth::user();        
+        return view('layouts/change-password')->with('user', $user);
+    }
 }
