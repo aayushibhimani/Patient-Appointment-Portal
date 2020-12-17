@@ -1,8 +1,3 @@
-/*
-Author       : Dreamguys
-Template Name: Doccure - Bootstrap Template
-Version      : 1.3
-*/
 
 (function($) {
     "use strict";
@@ -17,7 +12,6 @@ Version      : 1.3
 			});
 		}
 	}
-	
 	// Sidebar
 	
 	if($(window).width() <= 991){

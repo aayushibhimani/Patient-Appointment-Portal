@@ -16,12 +16,22 @@ class DoctorsController extends Controller
     {
         return view('doctor/dashboard');
     }
-    public function appointments()
+    
+//    Return Views
+
+    public function appointments()  
     {
         return view('doctor/appointments');
     }
+    public function patients()
+    {
+        return view('doctor/patients');
+    }
+    public function profileSettings()
+    {
+        return view('doctor/profile');
+    }
 
-//    Return Views
 
 //     End of return Views
 
