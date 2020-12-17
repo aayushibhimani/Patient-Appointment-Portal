@@ -16,13 +16,13 @@
         <div class="dashboard-widget">
             <nav class="dashboard-menu">
                 <ul>
-                    <li class="active">
+                    <li>
                         <a href="patient-dashboard.html">
                             <i class="fas fa-columns"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="favourites.html">
                             <i class="fas fa-bookmark"></i>
                             <span>Favourites</span>
@@ -40,15 +40,15 @@
                             <span>Message</span>
                             <small class="unread-msg">23</small>
                         </a>
-                    </li>
+                    </li> -->
                     <li>
-                        <a href="profile-settings.html">
+                        <a href="{{ route('patient-profile-settings') }}">
                             <i class="fas fa-user-cog"></i>
                             <span>Profile Settings</span>
                         </a>
                     </li>
                     <li>
-                        <a href="change-password.html">
+                        <a href="{{ route('change-password') }}">
                             <i class="fas fa-lock"></i>
                             <span>Change Password</span>
                         </a>

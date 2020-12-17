@@ -20,6 +20,10 @@ class PatientsController extends Controller
     {
         return view('patient/view-invoice');
     }
+    public function profileSettings()
+    {
+        return view('patient/profile');
+    }
 
     /**
      * Show the form for creating a new resource.

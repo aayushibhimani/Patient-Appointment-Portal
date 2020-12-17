@@ -39,6 +39,7 @@ Route::get('/patient-profile', [App\Http\Controllers\DoctorsController::class, '
 
 //Route::get('/patient-dashboard', [App\Http\Controllers\PatientsController::class, 'index'])->name('patient-dashboard');
 Route::get('/patient-view-invoice', [App\Http\Controllers\PatientsController::class, 'viewInvoice'])->name('patient-view-invoice');
+Route::get('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'profileSettings'])->name('patient-profile-settings');
 
 
 
