@@ -30,6 +30,7 @@ Route::get('/appointments', [App\Http\Controllers\DoctorsController::class, 'app
 Route::get('/my-patients', [App\Http\Controllers\DoctorsController::class, 'patients'])->name('doctor-patients');
 Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'profileSettings'])->name('doctor-profile-settings');
 Route::get('/patient-profile', [App\Http\Controllers\DoctorsController::class, 'patientProfile'])->name('patient-profile');
+Route::get('/schedule-timings', [App\Http\Controllers\DoctorsController::class, 'scheduleTimings'])->name('schedule-timings');
 
 
 
@@ -40,6 +41,8 @@ Route::get('/patient-profile', [App\Http\Controllers\DoctorsController::class, '
 //Route::get('/patient-dashboard', [App\Http\Controllers\PatientsController::class, 'index'])->name('patient-dashboard');
 Route::get('/patient-view-invoice', [App\Http\Controllers\PatientsController::class, 'viewInvoice'])->name('patient-view-invoice');
 Route::get('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'profileSettings'])->name('patient-profile-settings');
+Route::get('/doctor-profile', [App\Http\Controllers\PatientsController::class, 'doctorProfile'])->name('doctor-profile');
+Route::get('/booking', [App\Http\Controllers\PatientsController::class, 'booking'])->name('booking');
 
 
 

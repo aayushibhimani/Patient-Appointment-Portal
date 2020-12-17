@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="schedule-timings.html">
+                    <a href="{{ route('schedule-timings') }}">
                         <i class="fas fa-hourglass-start"></i>
                         <span>Schedule Timings</span>
                     </a>

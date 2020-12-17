@@ -27,7 +27,14 @@ class PatientsController extends Controller
         dd($patient);
         return view('patient/profile');
     }
-
+    public function doctorProfile()
+    {
+        return view('patient/doctor-profile');
+    }
+    public function booking()
+    {
+        return view('patient/booking');
+    }
     /**
      * Show the form for creating a new resource.
      *
