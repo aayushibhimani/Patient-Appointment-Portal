@@ -38,6 +38,9 @@
 
     <link rel="stylesheet" href="{{ asset('assets/plugins/dropzone/dropzone.min.css') }}">
 
+    <!-- Daterangepikcer CSS -->
+		<link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
+
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
@@ -304,6 +307,10 @@
 
     <!-- Profile Settings JS -->
     <script src="{{ asset('assets/js/profile-settings.js') }}"></script>
+
+    <!-- Daterangepikcer JS -->
+		<script src="assets/js/moment.min.js"></script>
+		<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
 
     <!-- Custom JS -->
     <script src="{{ asset('assets/js/script.js') }}"></script>

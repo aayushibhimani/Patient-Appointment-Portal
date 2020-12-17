@@ -35,6 +35,10 @@ class DoctorsController extends Controller
     {
         return view('doctor/patient-profile');
     }
+    public function scheduleTimings()
+    {
+        return view('doctor/schedule-timings');
+    }
 
 
 //     End of return Views
