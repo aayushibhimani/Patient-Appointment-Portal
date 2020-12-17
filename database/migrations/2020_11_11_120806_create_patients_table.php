@@ -15,10 +15,10 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->date('dob');
-            $table->string('blood_group');
-            $table->string('profile_pic');
-            $table->text('address');
+            $table->date('dob')->nullable();
+            $table->string('blood_group')->nullable();
+            $table->string('profile_pic')->nullable();
+            $table->text('address')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

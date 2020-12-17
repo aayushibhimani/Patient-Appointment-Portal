@@ -15,18 +15,18 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->date('dob');
-            $table->string('gender');
-            $table->string('profile_pic');
-            $table->string('clinic_name');
-            $table->text('clinic_address');
-            $table->unsignedBigInteger('clinic_no');
-            $table->string('specialization');
-            $table->string('education');
-            $table->string('education_degree');
-            $table->string('registration_name');
-            $table->string('registration_year');
-            $table->unsignedBigInteger('user_id');
+            $table->date('dob')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('profile_pic')->nullable();
+            $table->string('clinic_name')->nullable();
+            $table->text('clinic_address')->nullable();
+            $table->unsignedBigInteger('clinic_no')->nullable();
+            $table->string('specialization')->nullable();
+            $table->string('education')->nullable();
+            $table->string('education_degree')->nullable();
+            $table->string('registration_name')->nullable();
+            $table->string('registration_year')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

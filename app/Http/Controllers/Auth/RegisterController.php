@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Doctor;
+use App\Models\Patient;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -66,12 +68,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'mobile_no'=>$data['mobile_no'],
             'role'=>$data['role']
         ]);
+        // dd($user->id);
+
+        if($user->role=='Doctor')
+        {
+            $doctor = Doctor::create([
+                'user_id'=>auth()->id()
+            ]);
+        }
+        else{
+            $patient = Patient::create([
+                'user_id'=>$user->id
+            ]);
+        }
+        return $user;
+    
     }
 }

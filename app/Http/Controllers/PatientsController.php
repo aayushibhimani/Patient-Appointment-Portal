@@ -22,6 +22,9 @@ class PatientsController extends Controller
     }
     public function profileSettings()
     {
+
+        $patient = Patient::where('user_id',auth()->user()->id)->get();
+        dd($patient);
         return view('patient/profile');
     }
 
