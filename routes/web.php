@@ -21,9 +21,23 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/doctor-dashboard', [App\Http\Controllers\DoctorsController::class, 'index'])->name('doctor-dashboard');
+
+
+
+
+
+
+
+Route::get('/patient-dashboard', [App\Http\Controllers\PatientsController::class, 'index'])->name('patient-dashboard');
+
+
+
+
+
+
+
 
 Route::middleware(['auth','doctor'])->group(function(){
     Route::resource('doctor', 'App\Http\Controllers\DoctorsController');
