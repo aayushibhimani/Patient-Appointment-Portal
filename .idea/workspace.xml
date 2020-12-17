@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8eeddc15-032b-42d0-bd0d-38893ccde5c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/doctor/dprofile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/uploads/doctors/1608228459.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/uploads/doctors/1608228725.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DoctorsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DoctorsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/doctor/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctor/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_11_120902_create_doctors_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_11_120902_create_doctors_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/doctor/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctor/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,6 +193,7 @@
       <updated>1608201224723</updated>
       <workItem from="1608201240967" duration="88000" />
       <workItem from="1608201342572" duration="5811000" />
+      <workItem from="1608220455068" duration="7318000" />
     </task>
     <servers />
   </component>
@@ -208,6 +210,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1608201336912">

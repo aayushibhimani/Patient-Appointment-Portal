@@ -26,17 +26,6 @@ Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'cha
 
 
 //Route::get('/doctor-dashboard', [App\Http\Controllers\DoctorsController::class, 'index'])->name('doctor-dashboard');
-Route::get('/appointments', [App\Http\Controllers\DoctorsController::class, 'appointments'])->name('doctor-appointments');
-Route::get('/my-patients', [App\Http\Controllers\DoctorsController::class, 'patients'])->name('doctor-patients');
-Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'profileSettings'])->name('doctor-profile-settings');
-Route::get('/patient-profile', [App\Http\Controllers\DoctorsController::class, 'patientProfile'])->name('patient-profile');
-Route::get('/schedule-timings', [App\Http\Controllers\DoctorsController::class, 'scheduleTimings'])->name('schedule-timings');
-
-
-
-
-
-
 
 //Route::get('/patient-dashboard', [App\Http\Controllers\PatientsController::class, 'index'])->name('patient-dashboard');
 Route::get('/patient-view-invoice', [App\Http\Controllers\PatientsController::class, 'viewInvoice'])->name('patient-view-invoice');
@@ -45,14 +34,14 @@ Route::get('/doctor-profile', [App\Http\Controllers\PatientsController::class, '
 Route::get('/booking', [App\Http\Controllers\PatientsController::class, 'booking'])->name('booking');
 
 
-
-
-
-
-
-
 Route::middleware(['auth','doctor'])->group(function(){
    // Route::resource('doctor', 'App\Http\Controllers\DoctorsController');
+   Route::get('/appointments', [App\Http\Controllers\DoctorsController::class, 'appointments'])->name('doctor-appointments');
+Route::get('/my-patients', [App\Http\Controllers\DoctorsController::class, 'patients'])->name('doctor-patients');
+Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'profileSettings'])->name('doctor-profile-settings');
+Route::get('/patient-profile', [App\Http\Controllers\DoctorsController::class, 'patientProfile'])->name('patient-profile');
+Route::get('/schedule-timings', [App\Http\Controllers\DoctorsController::class, 'scheduleTimings'])->name('schedule-timings');
+Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('store-settings');
 });
 
 Route::middleware(['auth','patient'])->group(function(){
