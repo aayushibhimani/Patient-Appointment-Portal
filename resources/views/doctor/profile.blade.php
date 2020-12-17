@@ -33,6 +33,10 @@
 <form action="{{route('store-settings')}}" method="POST" enctype="multipart/form-data">
     @csrf
 <div class="content">
+{{--    {{dd($doc)}}--}}
+{{--    @foreach($doc as $doc)--}}
+{{--        {{dd($d)}}--}}
+{{--    @endforeach--}}
     <div class="container-fluid">
 
         <div class="row">
@@ -54,7 +58,7 @@
                                 <div class="form-group">
                                     <div class="change-avatar">
                                         <div class="profile-img">
-                                            <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+                                            <img src="#" alt="User Image">
                                         </div>
                                         <div class="upload-img">
                                             <div class="change-photo-btn">
@@ -100,7 +104,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Gender</label>
-                                    <select class="form-control select" required name="gender">
+                                    <select class="form-control select" required value="" name="gender">
                                         <option>Select</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
@@ -110,7 +114,7 @@
                             <div class="col-md-4">
                                 <div class="form-group mb-0">
                                     <label>Date of Birth</label>
-                                    <input type="date" name="dob" required class="form-control">
+                                    <input type="date" name="dob"  required class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -446,6 +450,7 @@
         </div>
 
     </div>
+
 
 </div>
 </form>

@@ -30,7 +30,8 @@ class DoctorsController extends Controller
     }
     public function profileSettings()
     {
-        return view('doctor/profile');
+        $doc = Doctor::where('user_id', Auth::user()->id)->get();
+        return view('doctor/profile')->with('doc', $doc);
     }
     public function patientProfile()
     {
@@ -118,10 +119,7 @@ class DoctorsController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        $doc = Doctor::all();
-        $username = Auth::user()->name;
-        $email = Auth::user()->email;
-        return view('doctor/profile')->with('username', $username)->with('email', $email)->with('doc', $doc);
+        //
     }
 
     /**
