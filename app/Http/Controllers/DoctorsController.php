@@ -17,6 +17,10 @@ class DoctorsController extends Controller
         return view('doctor/dashboard');
     }
 
+//    Return Views
+
+//     End of return Views
+
     /**
      * Show the form for creating a new resource.
      *
