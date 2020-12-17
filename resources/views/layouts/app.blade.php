@@ -92,17 +92,6 @@
                                 </form>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinktwo" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown link
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinktwo">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -261,7 +250,7 @@
 
     <!-- Custom JS -->
     <script src="assets/js/script.js"></script>
-
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

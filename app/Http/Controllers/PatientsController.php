@@ -16,6 +16,10 @@ class PatientsController extends Controller
     {
         return view('patient/dashboard');
     }
+    public function viewInvoice()
+    {
+        return view('patient/view-invoice');
+    }
 
     /**
      * Show the form for creating a new resource.
