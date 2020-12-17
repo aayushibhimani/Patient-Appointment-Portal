@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
 
 <!-- Breadcrumb -->
 <div class="breadcrumb-bar">
@@ -1466,4 +1464,3 @@
 </div>
 <!-- /Page Content -->
 
-@endsection
