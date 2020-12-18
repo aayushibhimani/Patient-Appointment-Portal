@@ -80,7 +80,7 @@ class RegisterController extends Controller
         if($user->role=='Doctor')
         {
             $doctor = Doctor::create([
-                'user_id'=>auth()->id()
+                'user_id'=>$user->id
             ]);
         }
         else{

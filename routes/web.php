@@ -35,16 +35,15 @@ Route::get('/booking', [App\Http\Controllers\PatientsController::class, 'booking
 
 
 Route::middleware(['auth','doctor'])->group(function(){
-   // Route::resource('doctor', 'App\Http\Controllers\DoctorsController');
    Route::get('/appointments', [App\Http\Controllers\DoctorsController::class, 'appointments'])->name('doctor-appointments');
-Route::get('/my-patients', [App\Http\Controllers\DoctorsController::class, 'patients'])->name('doctor-patients');
-Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'profileSettings'])->name('doctor-profile-settings');
-Route::get('/patient-profile', [App\Http\Controllers\DoctorsController::class, 'patientProfile'])->name('patient-profile');
-Route::get('/schedule-timings', [App\Http\Controllers\DoctorsController::class, 'scheduleTimings'])->name('schedule-timings');
-Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('store-settings');
+    Route::get('/my-patients', [App\Http\Controllers\DoctorsController::class, 'patients'])->name('doctor-patients');
+    Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'profileSettings'])->name('doctor-profile-settings');
+    Route::get('/patient-profile', [App\Http\Controllers\DoctorsController::class, 'patientProfile'])->name('patient-profile');
+    Route::get('/schedule-timings', [App\Http\Controllers\DoctorsController::class, 'scheduleTimings'])->name('schedule-timings');
+    Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('doctor-store-settings');
 });
 
 Route::middleware(['auth','patient'])->group(function(){
-    // Route::resource('patient', 'App\Http\Controllers\PatientsController');
     Route::get('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'profileSettings'])->name('patient-profile-settings');
+    Route::post('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'store'])->name('patient-store-settings');
 });
