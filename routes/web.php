@@ -46,6 +46,7 @@ Route::middleware(['auth','doctor'])->group(function(){
     Route::get('/patient-profile', [App\Http\Controllers\DoctorsController::class, 'patientProfile'])->name('patient-profile');
     Route::get('/schedule-timings', [App\Http\Controllers\DoctorsController::class, 'scheduleTimings'])->name('schedule-timings');
     Route::post('/schedule-timings', [App\Http\Controllers\DoctorsController::class, 'createScheduleTimings'])->name('create-schedule-timings');
+    Route::post('/schedule-timings', [App\Http\Controllers\DoctorsController::class, 'createScheduleTimings'])->name('create-schedule-timings');
     // Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('store-settings');
     //Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'show'])->name('show-settings');
     Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('doctor-store-settings');

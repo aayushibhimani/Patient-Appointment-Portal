@@ -13,6 +13,11 @@ class Doctor extends Model
         'dob','gender','profile_pic','clinic_name','clinic_address','clinic_no','specialization','education','education_degree','registration_name',
         'registratation_year','user_id'
     ];
+
+    public static function doctor()
+    {
+    }
+
     public function appointments(){
         return $this->hasMany(Appointment::class);
     }

@@ -6,6 +6,7 @@ use App\Models\Doctor;
 use App\Http\Requests\Doctor\UpdateDoctorRequest;
 use App\Http\Requests\Schedule\CreateScheduleRequest;
 
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,17 +43,34 @@ class DoctorsController extends Controller
     }
     public function patientProfile()
     {
-        return view('doctor/patient-profile');
     }
     public function scheduleTimings()
     {
         //will display the schedule page
-        return view('doctor/schedule-timings');
+        $schedules = Schedule::where('user_id', auth()->user()->id)->get();
+        //$schedules = $schedules_details[1];
+        return view('doctor/schedule-timings')->with('schedules', $schedules);
     }
     public function createScheduleTimings(Request $request)
     {
 
         //used to create new schedule timimgs
+        //dd($request->all());
+        $request->validate([
+            'day' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required'
+        ]);
+        $doctor = Auth::user()->id;
+        //dd($doctor);
+        $schedule = new Schedule();
+        $schedule->day = $request->day;
+        $schedule->start_time = $request->start_time;
+        $schedule->end_time = $request->end_time;
+        $schedule->user_id = $doctor;
+        $schedule->save();
+        return view('doctor/schedule-timings');
+
     }
 
 
