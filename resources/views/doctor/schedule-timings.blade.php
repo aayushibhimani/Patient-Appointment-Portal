@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <?php use App\Models\Schedule;
-    $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
-    //dd($schedules);
-            //
-    ?>
 
     <!-- Breadcrumb -->
 			<div class="breadcrumb-bar">
@@ -426,10 +421,17 @@
 													<label>Start Time</label>
 													<select class="form-control" name="start_time[]">
 														<option>-</option>
-														<option value="12.00 am">12.00 am</option>
-														<option value="12.30 am">12.30 am</option>
-														<option value="1.00 am">1.00 am</option>
-														<option value="1.30 am">1.30 am</option>
+														<option value="9.00 am">9.00 am</option>
+														<option value="9.30 am">9.30 am</option>
+														<option value="10.00 am">10.00 am</option>
+														<option value="10.30 am">10.30 am</option>
+														<option value="11.00 am">11.00 am</option>
+														<option value="11.30 am">11.30 am</option>
+														<option value="12.00 pm">12.00 pm</option>
+														<option value="6.00 pm">6.00 pm</option>
+														<option value="6.30 pm">6.30 pm</option>
+														<option value="7.00 pm">7.00 pm</option>
+														
 													</select>
 												</div>
 											</div>
@@ -438,10 +440,16 @@
 													<label>End Time</label>
 													<select class="form-control" name="end_time[]">
 														<option>-</option>
-														<option value="12.00 am">12.00 am</option>
-														<option value="12.30 am">12.30 am</option>
-														<option value="1.00 am">1.00 am</option>
-														<option value="1.30 am">1.30 am</option>
+														<option value="9.00 am">9.00 am</option>
+														<option value="9.30 am">9.30 am</option>
+														<option value="10.00 am">10.00 am</option>
+														<option value="10.30 am">10.30 am</option>
+														<option value="11.00 am">11.00 am</option>
+														<option value="11.30 am">11.30 am</option>
+														<option value="12.00 pm">12.00 pm</option>
+														<option value="6.00 pm">6.00 pm</option>
+														<option value="6.30 pm">6.30 pm</option>
+														<option value="7.00 pm">7.00 pm</option>
 													</select>
 												</div>
 											</div>
