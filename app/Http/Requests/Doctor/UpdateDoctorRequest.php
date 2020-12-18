@@ -37,9 +37,9 @@ class UpdateDoctorRequest extends FormRequest
              'hospital_name' => 'max:50',
              'start_date' => 'date ',
              'end_date' => 'date',
-             'destination' => 'date| max: 50',
-             'registration_name' => 'date | max: 50',
-             'registration_year' => 'date',
+             'destination' => 'max: 50',
+             'registration_name' => 'max: 50',
+             //'registration_year' => 'date',
         ];
     }
 }
