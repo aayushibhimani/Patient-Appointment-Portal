@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Http\Requests\Doctor\UpdateDoctorRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,8 +31,12 @@ class DoctorsController extends Controller
     }
     public function profileSettings()
     {
-        $doc = Doctor::where('user_id', Auth::user()->id)->get();
-        return view('doctor/profile')->with('doc', $doc);
+        $doctor_details = Doctor::where('user_id',auth()->user()->id)->get();
+        $doctor = $doctor_details[0];
+        // dd($doctor);
+        $user = auth()->user();
+        return view('doctor/profile')->with('user', $user)->with('doctor', $doctor);
+
     }
     public function patientProfile()
     {
@@ -61,54 +66,41 @@ class DoctorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return string
      */
-    public function store(Request $request)
+    public function store(UpdateDoctorRequest $request)
     {
-        $request -> validate([
-            'dob' => 'required | date | before:10 years ago',
-            'gender' => 'required',
-            'profile_pic' => 'required | mimes:jpg,jpeg,png | max: 99999',
-            'clinic_name' => 'required | max:140',
-            'clinic_address' => 'required | max:255',
-            'clinic_no' => 'required | regex:/[0-9]{8}/',
-            'specialization' => 'required | max:70',
-            'education_college' => 'required | max:100',
-            'year_of_completion' => 'required | date',
-            'education_degree' => 'required | max: 30',
-            'hospital_name' => 'required | max:50',
-            'start_date' => 'required ',
-            'end_date' => 'required',
-            'destination' => 'required | max: 50',
-            'registration_name' => 'required | max: 50',
-            'registration_year' => 'required | ',
-        ]);
-        $user_id = Auth::user()->id;
+        $doctor_deatils=Doctor::where('user_id',auth()->user()->id)->get();
+        $doctor = $doctor_deatils[0];
+        $data = $request->only(['dob','gender', 'clinic_name','clinic_address','clinic_no','specialization','education_college',
+        'year_of_completion','education_degree','hospital_name','start_date','end_date','destination','registration_name',
+        'registration_year']);
+         $doctor->update($data);
 
-        $doctor = new Doctor();
 
-        $imageName =  time().'.'.$request->profile_pic->extension();
-        $request->profile_pic->move(public_path('images/uploads/doctors'), $imageName);
-        //store in db
-        $doctor->profile_pic = $imageName;
+        // $imageName =  time().'.'.$request->profile_pic->extension();
+        // $request->profile_pic->move(public_path('images/uploads/doctors'), $imageName);
+        // //store in db
+        // $doctor->profile_pic = $imageName;
 
-        $doctor->user_id = $user_id;
-        $doctor->dob = $request->dob;
-        $doctor->gender = $request->gender;
-        $doctor->clinic_name = $request->clinic_name;
-        $doctor->clinic_address = $request->clinic_address;
-        $doctor->clinic_no = $request->clinic_no;
-        $doctor->specialization = $request->specialization;
-        $doctor->education_college = $request->education_college;
-        $doctor->year_of_completion = $request->year_of_completion;
-        $doctor->education_degree = $request->education_degree;
-        $doctor->hospital_name = $request->hospital_name;
-        $doctor->start_date = $request->start_date;
-        $doctor->end_date = $request->end_date;
-        $doctor->destination = $request->destination;
-        $doctor->registration_name = $request->registration_name;
-        $doctor->registration_year = $request->registration_year;
-        $doctor->save();
+        // $doctor->user_id = $user_id;
+        // $doctor->dob = $request->dob;
+        // $doctor->gender = $request->gender;
+        // $doctor->clinic_name = $request->clinic_name;
+        // $doctor->clinic_address = $request->clinic_address;
+        // $doctor->clinic_no = $request->clinic_no;
+        // $doctor->specialization = $request->specialization;
+        // $doctor->education_college = $request->education_college;
+        // $doctor->year_of_completion = $request->year_of_completion;
+        // $doctor->education_degree = $request->education_degree;
+        // $doctor->hospital_name = $request->hospital_name;
+        // $doctor->start_date = $request->start_date;
+        // $doctor->end_date = $request->end_date;
+        // $doctor->destination = $request->destination;
+        // $doctor->registration_name = $request->registration_name;
+        // $doctor->registration_year =
+        // $request->registration_year;
+        // $doctor->save();
 
-        return view('doctor/profile');
+        return redirect(route('doctor-profile-settings'));
     }
 
     /**
@@ -119,7 +111,6 @@ class DoctorsController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        //
     }
 
     /**

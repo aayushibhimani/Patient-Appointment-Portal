@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\Patient\UpdateProfileRequest;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 
@@ -23,9 +23,11 @@ class PatientsController extends Controller
     public function profileSettings()
     {
 
-        $patient = Patient::where('user_id',auth()->user()->id)->get();
-        dd($patient);
-        return view('patient/profile');
+        $patient_details = Patient::where('user_id',auth()->user()->id)->get();
+        $patient = $patient_details[0];
+        $user = auth()->user();
+        return view('patient/profile',compact(['patient','user']));
+
     }
     public function doctorProfile()
     {
@@ -60,9 +62,19 @@ class PatientsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UpdateProfileRequest $request)
     {
-        //
+        //Used to update and store patient profile details
+        // dd($request->all());
+        $patient_details = Patient::where('user_id',auth()->user()->id)->get();
+        $patient = $patient_details[0];
+        // dd($patient);
+        // $image = $request->file('image')->store('patients');
+        $data = $request->only(['dob','blood_group', 'address']);
+        // $data['profile_pic'] = $image;
+        // dd($data);
+        $patient->update($data);
+        return redirect(route('patient-profile-settings'));
     }
 
     /**
