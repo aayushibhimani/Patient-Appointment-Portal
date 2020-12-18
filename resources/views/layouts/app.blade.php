@@ -187,11 +187,11 @@
                         <div class="footer-widget footer-menu">
                             <h2 class="footer-title">For Doctors</h2>
                             <ul>
-                                <li><a href="appointments.html">Appointments</a></li>
-                                <li><a href="chat.html">Chat</a></li>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="doctor-register.html">Register</a></li>
-                                <li><a href="doctor-dashboard.html">Doctor Dashboard</a></li>
+                                <li><a href="{{route('doctor-appointments')}}">Appointments</a></li>
+                                <li><a href="{{route('schedule-timings')}}">Schedule Timings</a></li>
+                                <li><a href="{{route('login')}}">Login</a></li>
+                                <li><a href="{{route('register')}}">Register</a></li>
+                                <li><a href="{{route('home')}}">Doctor Dashboard</a></li>
                             </ul>
                         </div>
                         <!-- /Footer Widget -->
