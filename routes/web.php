@@ -34,6 +34,7 @@ Route::get('/doctor-profile', [App\Http\Controllers\PatientsController::class, '
 Route::get('/booking', [App\Http\Controllers\PatientsController::class, 'booking'])->name('booking');
 Route::get('/checkout', [App\Http\Controllers\PatientsController::class, 'checkout'])->name('checkout');
 Route::get('/booking-success', [App\Http\Controllers\PatientsController::class, 'paymentSuccess'])->name('payment-success');
+Route::get('/search', [App\Http\Controllers\PatientsController::class, 'search'])->name('search');
 
 
 

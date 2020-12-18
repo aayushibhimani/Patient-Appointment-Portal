@@ -46,6 +46,11 @@ class PatientsController extends Controller
     {
         return view('patient/payment-success');
     }
+
+    public function search()
+    {
+        return view('patient/search');
+    }
     /**
      * Show the form for creating a new resource.
      *
