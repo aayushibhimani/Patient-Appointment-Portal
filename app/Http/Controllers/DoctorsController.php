@@ -150,8 +150,9 @@ class DoctorsController extends Controller
      * @param  \App\Models\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy($id)
     {
-        //
+        Schedule::destroy($id);
+        return redirect()->back();
     }
 }

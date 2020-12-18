@@ -50,6 +50,7 @@ Route::middleware(['auth','doctor'])->group(function(){
     // Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('store-settings');
     //Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'show'])->name('show-settings');
     Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('doctor-store-settings');
+    Route::delete('/destroy/{id}', [App\Http\Controllers\DoctorsController::class, 'destroy'])->name('destroy');
 });
 
 Route::middleware(['auth','patient'])->group(function(){

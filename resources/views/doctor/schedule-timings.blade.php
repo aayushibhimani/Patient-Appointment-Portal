@@ -93,7 +93,7 @@
 																<li class="nav-item">
 																	<a class="nav-link" data-toggle="tab" data-filter=".saturday" href="#slot_saturday">Saturday</a>
 																</li>
-                                                                
+
 																	</ul>
 																</div>
 																<!-- /Schedule Nav -->
@@ -140,9 +140,12 @@
                                                                             <div class="doc-slot-list">
 
                                                                                 {{$s->start_time}} - {{$s->end_time}}
-                                                                                <a href="javascript:void(0)" class="delete_schedule">
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a>
+                                                                                <form action="{{ route('destroy', $s->id) }}" method="POST">
+                                                                                    @csrf @method('DELETE')
+                                                                                    <button class="delete_schedule">
+                                                                                        <i class="fa fa-times"></i>
+                                                                                    </button>
+                                                                                </form>
                                                                             </div>
                                                                         @elseif($s->day == 'Monday')
                                                                             <h4 class="card-title d-flex justify-content-between">
@@ -151,9 +154,12 @@
                                                                             </h4>
                                                                             <div class="doc-slot-list">
                                                                                 {{$s->start_time}} - {{$s->end_time}}
-                                                                                <a href="javascript:void(0)" class="delete_schedule">
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a>
+                                                                                <form action="{{ route('destroy', $s->id) }}" method="POST">
+                                                                                    @csrf @method('DELETE')
+                                                                                    <button class="delete_schedule">
+                                                                                        <i class="fa fa-times"></i>
+                                                                                    </button>
+                                                                                </form>
                                                                             </div>
                                                                         @elseif($s->day == 'Tuesday')
                                                                             <h4 class="card-title d-flex justify-content-between">
@@ -162,9 +168,12 @@
                                                                             </h4>
                                                                             <div class="doc-slot-list">
                                                                                 {{$s->start_time}} - {{$s->end_time}}
-                                                                                <a href="javascript:void(0)" class="delete_schedule">
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a>
+                                                                                <form action="{{ route('destroy', $s->id) }}" method="POST">
+                                                                                    @csrf @method('DELETE')
+                                                                                    <button class="delete_schedule">
+                                                                                        <i class="fa fa-times"></i>
+                                                                                    </button>
+                                                                                </form>
                                                                             </div>
                                                                         @elseif($s->day == 'Wednesday')
                                                                             <h4 class="card-title d-flex justify-content-between">
@@ -173,9 +182,12 @@
                                                                             </h4>
                                                                             <div class="doc-slot-list">
                                                                                 {{$s->start_time}} - {{$s->end_time}}
-                                                                                <a href="javascript:void(0)" class="delete_schedule">
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a>
+                                                                                <form action="{{ route('destroy', $s->id) }}" method="POST">
+                                                                                    @csrf @method('DELETE')
+                                                                                    <button class="delete_schedule">
+                                                                                        <i class="fa fa-times"></i>
+                                                                                    </button>
+                                                                                </form>
                                                                             </div>
                                                                         @elseif($s->day == 'Thursday')
                                                                             <h4 class="card-title d-flex justify-content-between">
@@ -184,9 +196,12 @@
                                                                             </h4>
                                                                             <div class="doc-slot-list">
                                                                                 {{$s->start_time}} - {{$s->end_time}}
-                                                                                <a href="javascript:void(0)" class="delete_schedule">
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a>
+                                                                                <form action="{{ route('destroy', $s->id) }}" method="POST">
+                                                                                    @csrf @method('DELETE')
+                                                                                    <button class="delete_schedule">
+                                                                                        <i class="fa fa-times"></i>
+                                                                                    </button>
+                                                                                </form>
                                                                             </div>
                                                                         @elseif($s->day == 'Friday')
                                                                             <h4 class="card-title d-flex justify-content-between">
@@ -195,9 +210,12 @@
                                                                             </h4>
                                                                             <div class="doc-slot-list">
                                                                                 {{$s->start_time}} - {{$s->end_time}}
-                                                                                <a href="javascript:void(0)" class="delete_schedule">
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a>
+                                                                                <form action="{{ route('destroy', $s->id) }}" method="POST">
+                                                                                    @csrf @method('DELETE')
+                                                                                    <button class="delete_schedule">
+                                                                                        <i class="fa fa-times"></i>
+                                                                                    </button>
+                                                                                </form>
                                                                             </div>
                                                                         @elseif($s->day == 'Saturday')
                                                                             <h4 class="card-title d-flex justify-content-between">
@@ -206,9 +224,12 @@
                                                                             </h4>
                                                                             <div class="doc-slot-list">
                                                                                 {{$s->start_time}} - {{$s->end_time}}
-                                                                                <a href="javascript:void(0)" class="delete_schedule">
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a>
+                                                                                <form action="{{ route('destroy', $s->id) }}" method="POST">
+                                                                                    @csrf @method('DELETE')
+                                                                                    <button class="delete_schedule">
+                                                                                        <i class="fa fa-times"></i>
+                                                                                    </button>
+                                                                                </form>
                                                                             </div>
                                                                         @else
                                                                             <p class="text-muted mb-0">Not Available</p>
