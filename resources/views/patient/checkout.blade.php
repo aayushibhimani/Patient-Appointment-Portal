@@ -195,7 +195,7 @@
 
 
 <script type="text/javascript">
-var total = 160;  
+var total = 160;
 
 var form = document.getElementById('form');
 csrftoken = form.getElementsByTagName('input')[0].value;
