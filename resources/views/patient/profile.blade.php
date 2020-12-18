@@ -52,7 +52,7 @@
                                     <div class="form-group">
                                         <div class="change-avatar">
                                             <div class="profile-img">
-                                                <img src="assets/img/patients/patient.jpg" alt="User Image">
+                                                <img src="{{asset('images/uploads/patients/'.$patient->profile_pic)}}" alt="User Image">
                                             </div>
                                             <div class="upload-img">
                                                 <div class="change-photo-btn">
@@ -68,7 +68,7 @@
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" value="{{$user->name}}" name="name" readonly>
+                                        <input type="text" class="form-control" value="{{ucwords($user->name)}}" name="name" readonly>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
@@ -98,7 +98,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-12 col-md-12">
                                     <div class="form-group">
                                         <label>Mobile</label>
