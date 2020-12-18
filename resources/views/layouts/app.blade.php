@@ -56,7 +56,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color:#15558d;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Doctor Appointment') }}
@@ -90,34 +90,6 @@
                         </li>
                         @endif
                         @else
-                        @if (Auth::user()->role == 'Doctor')
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Doctor
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Dashboard</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        @endif
-                        @if (Auth::user()->role == 'Patient')
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Patient
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Dashboard</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        @endif
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -125,7 +97,7 @@
                                 {{ ucwords(Auth::user()->name) }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -170,10 +142,9 @@
                         <div class="footer-widget footer-menu">
                             <h2 class="footer-title">For Patients</h2>
                             <ul>
-                                <li><a href="search.html">Search for Doctors</a></li>
+                                <li><a href="{{route('search')}}">Search for Doctors</a></li>
                                 <li><a href="{{route('login')}}">Login</a></li>
                                 <li><a href="{{route('register')}}">Register</a></li>
-                                <li><a href="{{route('booking')}}">Booking</a></li>
                                 <li><a href="{{route('home')}}">Patient Dashboard</a></li>
                             </ul>
                         </div>
@@ -188,7 +159,6 @@
                             <h2 class="footer-title">For Doctors</h2>
                             <ul>
                                 <li><a href="{{route('doctor-appointments')}}">Appointments</a></li>
-                                <li><a href="{{route('schedule-timings')}}">Schedule Timings</a></li>
                                 <li><a href="{{route('login')}}">Login</a></li>
                                 <li><a href="{{route('register')}}">Register</a></li>
                                 <li><a href="{{route('home')}}">Doctor Dashboard</a></li>

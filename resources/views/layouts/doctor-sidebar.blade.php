@@ -1,4 +1,3 @@
-
 <?php use App\Models\Doctor;
 $doctor = Doctor::where('user_id', Auth::user()->id)->first();
 ?>
@@ -45,36 +44,11 @@ $doctor = Doctor::where('user_id', Auth::user()->id)->first();
                     </a>
                 </li>
                 <li>
-                    <a href="invoices.html">
-                        <i class="fas fa-file-invoice"></i>
-                        <span>Invoices</span>
-                    </a>
-                </li>
-                <!-- <li>
-                    <a href="reviews.html">
-                        <i class="fas fa-star"></i>
-                        <span>Reviews</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="chat-doctor.html">
-                        <i class="fas fa-comments"></i>
-                        <span>Message</span>
-                        <small class="unread-msg">23</small>
-                    </a>
-                </li> -->
-                <li>
                     <a href="{{ route('doctor-profile-settings') }}">
                         <i class="fas fa-user-cog"></i>
                         <span>Profile Settings</span>
                     </a>
                 </li>
-                <!-- <li>
-                    <a href="social-media.html">
-                        <i class="fas fa-share-alt"></i>
-                        <span>Social Media</span>
-                    </a>
-                </li> -->
                 <li>
                     <a href="{{ route('change-password') }}">
                         <i class="fas fa-lock"></i>

@@ -2,23 +2,6 @@
 
 @section('content')
 
-<!-- Breadcrumb -->
-<div class="breadcrumb-bar">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-md-12 col-12">
-                <nav aria-label="breadcrumb" class="page-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
-                    </ol>
-                </nav>
-                <h2 class="breadcrumb-title">Profile Settings</h2>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /Breadcrumb -->
 
 <!-- Page Content -->
 <div class="content">
@@ -37,22 +20,23 @@
 
                         <!-- Profile Settings Form -->
                         @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div><br />
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div><br />
                         @endif
                         <form action="{{route('patient-store-settings')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
+                            @csrf
                             <div class="row form-row">
                                 <div class="col-12 col-md-12">
                                     <div class="form-group">
                                         <div class="change-avatar">
                                             <div class="profile-img">
-                                                <img src="{{asset('images/uploads/patients/'.$patient->profile_pic)}}" alt="User Image">
+                                                <img src="{{asset('images/uploads/patients/'.$patient->profile_pic)}}"
+                                                    alt="User Image">
                                             </div>
                                             <div class="upload-img">
                                                 <div class="change-photo-btn">
@@ -68,25 +52,29 @@
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" value="{{ucwords($user->name)}}" name="name" readonly>
+                                        <input type="text" class="form-control" value="{{ucwords($user->name)}}"
+                                            name="name" readonly>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label>Email ID</label>
-                                        <input type="email" class="form-control" value="{{$user->email}}" name="email" readonly>
+                                        <input type="email" class="form-control" value="{{$user->email}}" name="email"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group mb-0">
                                         <label>Date of Birth</label>
-                                        <input type="date" name="dob" required class="form-control" value = "{{$patient->dob}}">
+                                        <input type="date" name="dob" required class="form-control"
+                                            value="{{$patient->dob}}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label>Blood Group</label>
-                                        <select class="form-control select" name="blood_group" value="{{$patient->blood_group}}" required>
+                                        <select class="form-control select" name="blood_group"
+                                            value="{{$patient->blood_group}}" required>
                                             <option value="A-">A-</option>
                                             <option value="A+">A+</option>
                                             <option value="B-">B-</option>
@@ -102,18 +90,20 @@
                                 <div class="col-12 col-md-12">
                                     <div class="form-group">
                                         <label>Mobile</label>
-                                        <input type="text" value="{{$user->mobile_no}}" class="form-control" name="mobile_no" placeholder="+1 202-555-0125" readonly>
+                                        <input type="text" value="{{$user->mobile_no}}" class="form-control"
+                                            name="mobile_no" placeholder="+1 202-555-0125" readonly>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" class="form-control" value="{{$patient->address}}" name="address" placeholder="806 Twin Willow Lane" required>
+                                        <input type="text" class="form-control" value="{{$patient->address}}"
+                                            name="address" placeholder="806 Twin Willow Lane" required>
                                     </div>
                                 </div>
-                            <div class="submit-section">
-                                <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
-                            </div>
+                                <div class="submit-section">
+                                    <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+                                </div>
                         </form>
                         <!-- /Profile Settings Form -->
 
