@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use App\Http\Requests\Doctor\UpdateDoctorRequest;
+use App\Http\Requests\Schedule\CreateScheduleRequest;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,7 +46,13 @@ class DoctorsController extends Controller
     }
     public function scheduleTimings()
     {
+        //will display the schedule page
         return view('doctor/schedule-timings');
+    }
+    public function createScheduleTimings(Request $request)
+    {
+
+        //used to create new schedule timimgs
     }
 
 
@@ -71,10 +79,10 @@ class DoctorsController extends Controller
         $doctor_deatils=Doctor::where('user_id',auth()->user()->id)->get();
         $doctor = $doctor_deatils[0];
         $data = $request->only(['dob','gender', 'clinic_name','clinic_address','clinic_no','specialization','education_college',
-            'year_of_completion','education_degree','hospital_name','start_date','end_date','destination','registration_name',
-            'registration_year']);
-        $profile_pic = $request->file('profile_pic');
-        $imageName =  time().'.'.$request->profile_pic->extension();
+        'year_of_completion','education_degree','hospital_name','start_date','end_date','destination','registration_name',
+        'registration_year']);
+         $profile_pic = $request->file('profile_pic');
+         $imageName =  time().'.'.$request->profile_pic->extension();
         // dd($imageName);
         // $imageName =  time().'.'.$request->profile_pic->extension();
         $profile_pic->move(public_path('images/uploads/doctors'), $imageName);
