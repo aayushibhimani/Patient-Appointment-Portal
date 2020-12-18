@@ -124,24 +124,24 @@
 					'<div class="col-12 col-md-6">' +
 						'<div class="form-group">' +
 							'<label>Start Time</label>' +
-							'<select class="form-control">' +
+							'<select class="form-control" name="start_time[]">' +
 								'<option>-</option>' +
-								'<option>12.00 am</option>' +
-								'<option>12.30 am</option>' + 
-								'<option>1.00 am</option>' +
-								'<option>1.30 am</option>' +
+								'<option value="12.00 am">12.00 am</option>' +
+								'<option value="12.30 am">12.30 am</option>' + 
+								'<option value="1.00 am">1.00 am</option>' +
+								'<option value="1.30 am">1.30 am</option>' +
 							'</select>' +
 						'</div>' +
 					'</div>' +
 					'<div class="col-12 col-md-6">' +
 						'<div class="form-group">' +
 							'<label>End Time</label>' +
-							'<select class="form-control">' +
+							'<select class="form-control" name="end_time[]">' +
 								'<option>-</option>' +
-								'<option>12.00 am</option>' +
-								'<option>12.30 am</option>' +
-								'<option>1.00 am</option>' +
-								'<option>1.30 am</option>' +
+								'<option value="12.00 am">12.00 am</option>' +
+								'<option value="12.30 am">12.30 am</option>' +
+								'<option value="1.00 am">1.00 am</option>' +
+								'<option value="1.30 am">1.30 am</option>' +
 							'</select>' +
 						'</div>' +
 					'</div>' +
@@ -153,6 +153,7 @@
         $(".hours-info").append(hourscontent);
         return false;
     });
+	
 	
 	// Content div min height set
 	

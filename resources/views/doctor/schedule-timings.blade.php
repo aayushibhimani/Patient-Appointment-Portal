@@ -300,7 +300,7 @@
 											<div class="col-12 col-md-6">
 												<div class="form-group">
 													<label>Start Time</label>
-													<select class="form-control" name="start_time">
+													<select class="form-control" name="start_time[]">
 														<option>-</option>
 														<option value="12.00 am">12.00 am</option>
 														<option value="12.30 am">12.30 am</option>
@@ -312,7 +312,7 @@
 											<div class="col-12 col-md-6">
 												<div class="form-group">
 													<label>End Time</label>
-													<select class="form-control" name="end_time">
+													<select class="form-control" name="end_time[]">
 														<option>-</option>
 														<option value="12.00 am">12.00 am</option>
 														<option value="12.30 am">12.30 am</option>
