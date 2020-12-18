@@ -2,11 +2,11 @@
 
 @section('content')
     <?php use App\Models\Schedule;
-    $schedules = Schedule::where('user_id', Auth::user()->id)->get();
+    $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
     //dd($schedules);
             //
-
     ?>
+
     <!-- Breadcrumb -->
 			<div class="breadcrumb-bar">
 				<div class="container-fluid">
@@ -68,6 +68,7 @@
 													<!-- Schedule Nav -->
 														<div class="schedule-nav">
 															<ul class="nav nav-tabs nav-justified">
+
                                                                 <li class="nav-item">
                                                                  <a class="nav-link" data-toggle="tab" data-filter="*" href="#all">All</a>
                                                                  </li>
@@ -92,6 +93,7 @@
 																<li class="nav-item">
 																	<a class="nav-link" data-toggle="tab" data-filter=".saturday" href="#slot_saturday">Saturday</a>
 																</li>
+                                                                
 																	</ul>
 																</div>
 																<!-- /Schedule Nav -->
@@ -101,153 +103,254 @@
 
 															<!-- Schedule Content -->
 {{--                                                {{dd($schedules['day'] == 'Friday')}}--}}
-                                                @foreach ($schedules as $s)
-{{--                                                    {{dd($s->day == 'Friday')}}--}}
+
+
 															<div class="tab-content schedule-cont">
 {{--                                                            @foreach($schedules as $s)--}}
 {{--                                                                {{dd($schedule)}}--}}
 {{--                                                            @endforeach--}}
-                                                            <!-- all slots -->
-                                                            <div id="all" class="tab-pane fade">
-                                                                <h4 class="card-title d-flex justify-content-between">
-                                                                    <span>Time Slots</span>
+{{--                                                            <!-- all slots -->--}}
+{{--   --}}
+{{--                                                            <div id="all" class="tab-pane fade">--}}
+{{--                                                                <h4 class="card-title d-flex justify-content-between">--}}
+{{--                                                                    <span>Time Slots</span>--}}
 
-                                                                </h4>
-                                                                <p class="text-muted mb-0">Not Available</p>
-                                                            </div>
-                                                            <!-- /all slots -->
+{{--                                                                </h4>--}}
+{{--                                                                <div class="doc-times">--}}
+{{--                                                                    <div class="doc-slot-list">--}}
+{{--                                                                        {{$s->start_time}} - {{$s->end_time}}--}}
+{{--                                                                        <a href="javascript:void(0)" class="delete_schedule">--}}
+{{--                                                                            <i class="fa fa-times"></i>--}}
+{{--                                                                        </a>--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                            <!-- /all slots -->--}}
+
 																<!-- Sunday Slot -->
 																<div id="slot_sunday" class="tab-pane fade">
-																	<h4 class="card-title d-flex justify-content-between">
-																		<span>Time Slots</span>
 
-																	</h4>
-																	<p class="text-muted mb-0">Not Available</p>
-																</div>
-																<!-- /Sunday Slot -->
-
-																<!-- Monday Slot -->
-{{--																<div id="slot_monday" class="tab-pane fade show active">--}}
-{{--																	<h4 class="card-title d-flex justify-content-between">--}}
-{{--																		<span>Time Slots</span>--}}
-{{--																		<a class="edit-link" data-toggle="modal" href="#edit_time_slot"><i class="fa fa-edit mr-1"></i>Edit</a>--}}
-{{--																	</h4>--}}
-
-{{--																	<!-- Slot List -->--}}
-{{--																	<div class="doc-times">--}}
-{{--																		<div class="doc-slot-list">--}}
-{{--																			8:00 pm - 11:30 pm--}}
-{{--																			<a href="javascript:void(0)" class="delete_schedule">--}}
-{{--																				<i class="fa fa-times"></i>--}}
-{{--																			</a>--}}
-{{--																		</div>--}}
-{{--																		<div class="doc-slot-list">--}}
-{{--																			11:30 pm - 1:30 pm--}}
-{{--																			<a href="javascript:void(0)" class="delete_schedule">--}}
-{{--																				<i class="fa fa-times"></i>--}}
-{{--																			</a>--}}
-{{--																		</div>--}}
-{{--																		<div class="doc-slot-list">--}}
-{{--																			3:00 pm - 5:00 pm--}}
-{{--																			<a href="javascript:void(0)" class="delete_schedule">--}}
-{{--																				<i class="fa fa-times"></i>--}}
-{{--																			</a>--}}
-{{--																		</div>--}}
-{{--																		<div class="doc-slot-list">--}}
-{{--																			6:00 pm - 11:00 pm--}}
-{{--																			<a href="javascript:void(0)" class="delete_schedule">--}}
-{{--																				<i class="fa fa-times"></i>--}}
-{{--																			</a>--}}
-{{--																		</div>--}}
-{{--																	</div>--}}
-{{--																	<!-- /Slot List -->--}}
-
-{{--																</div>--}}
-                                                                <div id="slot_monday" class="tab-pane fade">
-                                                                    <h4 class="card-title d-flex justify-content-between">
-                                                                        <span>Time Slots</span>
-                                                                        {{--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--}}
-                                                                    </h4>
-
-
-                                                                    @if($s->day == 'Monday')
+                                                                    @foreach ($schedules as $s)
                                                                     <div class="doc-times">
-                                                                        <div class="doc-slot-list">
-                                                                            {{$s->start_time}} - {{$s->end_time}}
-                                                                            <a href="javascript:void(0)" class="delete_schedule">
-                                                                            <i class="fa fa-times"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    @else
-                                                                        <p class="text-muted mb-0">Not Available</p>
-                                                                    @endif
-                                                                </div>
-																<!-- /Monday Slot -->
+                                                                        @if($s->day == 'Sunday')
+                                                                            <h4 class="card-title d-flex justify-content-between">
+                                                                                <span>{{$s->day}}</span>
 
-																<!-- Tuesday Slot -->
-																<div id="slot_tuesday" class="tab-pane fade">
-																	<h4 class="card-title d-flex justify-content-between">
-																		<span>Time Slots</span>
-{{--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--}}
-																	</h4>
-                                                                    @if($s->day == 'Tuesday')
-                                                                        <div class="doc-times">
+                                                                            </h4>
+                                                                            <div class="doc-slot-list">
+
+                                                                                {{$s->start_time}} - {{$s->end_time}}
+                                                                                <a href="javascript:void(0)" class="delete_schedule">
+                                                                                    <i class="fa fa-times"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        @elseif($s->day == 'Monday')
+                                                                            <h4 class="card-title d-flex justify-content-between">
+                                                                                <span>{{$s->day}}</span>
+
+                                                                            </h4>
                                                                             <div class="doc-slot-list">
                                                                                 {{$s->start_time}} - {{$s->end_time}}
                                                                                 <a href="javascript:void(0)" class="delete_schedule">
                                                                                     <i class="fa fa-times"></i>
                                                                                 </a>
                                                                             </div>
-                                                                        </div>
-                                                                    @else
-                                                                        <p class="text-muted mb-0">Not Available</p>
-                                                                    @endif
-																</div>
-																<!-- /Tuesday Slot -->
+                                                                        @elseif($s->day == 'Tuesday')
+                                                                            <h4 class="card-title d-flex justify-content-between">
+                                                                                <span>{{$s->day}}</span>
 
-																<!-- Wednesday Slot -->
-																<div id="slot_wednesday" class="tab-pane fade">
-																	<h4 class="card-title d-flex justify-content-between">
-																		<span>Time Slots</span>
+                                                                            </h4>
+                                                                            <div class="doc-slot-list">
+                                                                                {{$s->start_time}} - {{$s->end_time}}
+                                                                                <a href="javascript:void(0)" class="delete_schedule">
+                                                                                    <i class="fa fa-times"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        @elseif($s->day == 'Wednesday')
+                                                                            <h4 class="card-title d-flex justify-content-between">
+                                                                                <span>{{$s->day}}</span>
+
+                                                                            </h4>
+                                                                            <div class="doc-slot-list">
+                                                                                {{$s->start_time}} - {{$s->end_time}}
+                                                                                <a href="javascript:void(0)" class="delete_schedule">
+                                                                                    <i class="fa fa-times"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        @elseif($s->day == 'Thursday')
+                                                                            <h4 class="card-title d-flex justify-content-between">
+                                                                                <span>{{$s->day}}</span>
+
+                                                                            </h4>
+                                                                            <div class="doc-slot-list">
+                                                                                {{$s->start_time}} - {{$s->end_time}}
+                                                                                <a href="javascript:void(0)" class="delete_schedule">
+                                                                                    <i class="fa fa-times"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        @elseif($s->day == 'Friday')
+                                                                            <h4 class="card-title d-flex justify-content-between">
+                                                                                <span>{{$s->day}}</span>
+
+                                                                            </h4>
+                                                                            <div class="doc-slot-list">
+                                                                                {{$s->start_time}} - {{$s->end_time}}
+                                                                                <a href="javascript:void(0)" class="delete_schedule">
+                                                                                    <i class="fa fa-times"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        @elseif($s->day == 'Saturday')
+                                                                            <h4 class="card-title d-flex justify-content-between">
+                                                                                <span>{{$s->day}}</span>
+
+                                                                            </h4>
+                                                                            <div class="doc-slot-list">
+                                                                                {{$s->start_time}} - {{$s->end_time}}
+                                                                                <a href="javascript:void(0)" class="delete_schedule">
+                                                                                    <i class="fa fa-times"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        @else
+                                                                            <p class="text-muted mb-0">Not Available</p>
+                                                                        @endif
+                                                                    </div>
+                                                                    @endforeach
+
+																</div>
+																<!-- /Sunday Slot -->
+
+{{--																<!-- Monday Slot -->--}}
+
+{{--                                                                <div id="slot_monday" class="tab-pane fade">--}}
+{{--                                                                    <h4 class="card-title d-flex justify-content-between">--}}
+{{--                                                                        <span>Time Slots</span>--}}
+{{--                                                                        --}}{{--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--}}
+{{--                                                                    </h4>--}}
+
+
+{{--                                                                    <div class="doc-times">--}}
+{{--                                                                        @if($s->day == 'Monday')--}}
+{{--                                                                            <div class="doc-slot-list">--}}
+{{--                                                                                {{$s->start_time}} - {{$s->end_time}}--}}
+{{--                                                                                <a href="javascript:void(0)" class="delete_schedule">--}}
+{{--                                                                                    <i class="fa fa-times"></i>--}}
+{{--                                                                                </a>--}}
+{{--                                                                            </div>--}}
+{{--                                                                        @else--}}
+{{--                                                                            <p class="text-muted mb-0">Not Available</p>--}}
+{{--                                                                        @endif--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--																<!-- /Monday Slot -->--}}
+
+{{--																<!-- Tuesday Slot -->--}}
+{{--																<div id="slot_tuesday" class="tab-pane fade">--}}
+{{--																	<h4 class="card-title d-flex justify-content-between">--}}
+{{--																		<span>Time Slots</span>--}}
 {{--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--}}
-																	</h4>
-																	<p class="text-muted mb-0">Not Available</p>
-																</div>
-																<!-- /Wednesday Slot -->
+{{--																	</h4>--}}
+{{--                                                                    <div class="doc-times">--}}
+{{--                                                                        @if($s->day == 'Tuesday')--}}
+{{--                                                                            <div class="doc-slot-list">--}}
+{{--                                                                                {{$s->start_time}} - {{$s->end_time}}--}}
+{{--                                                                                <a href="javascript:void(0)" class="delete_schedule">--}}
+{{--                                                                                    <i class="fa fa-times"></i>--}}
+{{--                                                                                </a>--}}
+{{--                                                                            </div>--}}
+{{--                                                                        @else--}}
+{{--                                                                            <p class="text-muted mb-0">Not Available</p>--}}
+{{--                                                                        @endif--}}
+{{--                                                                    </div>--}}
+{{--																</div>--}}
+{{--																<!-- /Tuesday Slot -->--}}
 
-																<!-- Thursday Slot -->
-																<div id="slot_thursday" class="tab-pane fade">
-																	<h4 class="card-title d-flex justify-content-between">
-																		<span>Time Slots</span>
+{{--																<!-- Wednesday Slot -->--}}
+{{--																<div id="slot_wednesday" class="tab-pane fade">--}}
+{{--																	<h4 class="card-title d-flex justify-content-between">--}}
+{{--																		<span>Time Slots</span>--}}
 {{--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--}}
-																	</h4>
-																	<p class="text-muted mb-0">Not Available</p>
-																</div>
-																<!-- /Thursday Slot -->
+{{--																	</h4>--}}
+{{--                                                                    <div class="doc-times">--}}
+{{--                                                                        @if($s->day == 'Wednesday')--}}
+{{--                                                                            <div class="doc-slot-list">--}}
+{{--                                                                                {{$s->start_time}} - {{$s->end_time}}--}}
+{{--                                                                                <a href="javascript:void(0)" class="delete_schedule">--}}
+{{--                                                                                    <i class="fa fa-times"></i>--}}
+{{--                                                                                </a>--}}
+{{--                                                                            </div>--}}
+{{--                                                                        @else--}}
+{{--                                                                            <p class="text-muted mb-0">Not Available</p>--}}
+{{--                                                                        @endif--}}
+{{--                                                                    </div>--}}
+{{--																</div>--}}
+{{--																<!-- /Wednesday Slot -->--}}
 
-																<!-- Friday Slot -->
-																<div id="slot_friday" class="tab-pane fade">
-																	<h4 class="card-title d-flex justify-content-between">
-																		<span>Time Slots</span>
+{{--																<!-- Thursday Slot -->--}}
+{{--																<div id="slot_thursday" class="tab-pane fade">--}}
+{{--																	<h4 class="card-title d-flex justify-content-between">--}}
+{{--																		<span>Time Slots</span>--}}
 {{--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--}}
-																	</h4>
-																	<p class="text-muted mb-0">Not Available</p>
-																</div>
-																<!-- /Friday Slot -->
+{{--																	</h4>--}}
+{{--                                                                    <div class="doc-times">--}}
+{{--                                                                        @if($s->day == 'Thursday')--}}
+{{--                                                                            <div class="doc-slot-list">--}}
+{{--                                                                                {{$s->start_time}} - {{$s->end_time}}--}}
+{{--                                                                                <a href="javascript:void(0)" class="delete_schedule">--}}
+{{--                                                                                    <i class="fa fa-times"></i>--}}
+{{--                                                                                </a>--}}
+{{--                                                                            </div>--}}
+{{--                                                                        @else--}}
+{{--                                                                            <p class="text-muted mb-0">Not Available</p>--}}
+{{--                                                                        @endif--}}
+{{--                                                                    </div>--}}
+{{--																</div>--}}
+{{--																<!-- /Thursday Slot -->--}}
 
-																<!-- Saturday Slot -->
-																<div id="slot_saturday" class="tab-pane fade">
-																	<h4 class="card-title d-flex justify-content-between">
-																		<span>Time Slots</span>
+{{--																<!-- Friday Slot -->--}}
+{{--																<div id="slot_friday" class="tab-pane fade">--}}
+{{--																	<h4 class="card-title d-flex justify-content-between">--}}
+{{--																		<span>Time Slots</span>--}}
 {{--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--}}
-																	</h4>
-																	<p class="text-muted mb-0">Not Available</p>
-																</div>
-																<!-- /Saturday Slot -->
+{{--																	</h4>--}}
+{{--                                                                    <div class="doc-times">--}}
+{{--                                                                        @if($s->day == 'Friday')--}}
+{{--                                                                            <div class="doc-slot-list">--}}
+{{--                                                                                {{$s->start_time}} - {{$s->end_time}}--}}
+{{--                                                                                <a href="javascript:void(0)" class="delete_schedule">--}}
+{{--                                                                                    <i class="fa fa-times"></i>--}}
+{{--                                                                                </a>--}}
+{{--                                                                            </div>--}}
+{{--                                                                        @else--}}
+{{--                                                                            <p class="text-muted mb-0">Not Available</p>--}}
+{{--                                                                        @endif--}}
+{{--                                                                    </div>--}}
+{{--																</div>--}}
+{{--																<!-- /Friday Slot -->--}}
 
-															</div>
-                                            @endforeach
+{{--																<!-- Saturday Slot -->--}}
+{{--																<div id="slot_saturday" class="tab-pane fade">--}}
+{{--																	<h4 class="card-title d-flex justify-content-between">--}}
+{{--																		<span>Time Slots</span>--}}
+{{--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--}}
+{{--																	</h4>--}}
+{{--                                                                    <div class="doc-times">--}}
+{{--                                                                        @if($s->day == 'Saturday')--}}
+{{--                                                                            <div class="doc-slot-list">--}}
+{{--                                                                                {{$s->start_time}} - {{$s->end_time}}--}}
+{{--                                                                                <a href="javascript:void(0)" class="delete_schedule">--}}
+{{--                                                                                    <i class="fa fa-times"></i>--}}
+{{--                                                                                </a>--}}
+{{--                                                                            </div>--}}
+{{--                                                                        @else--}}
+{{--                                                                            <p class="text-muted mb-0">Not Available</p>--}}
+{{--                                                                        @endif--}}
+{{--                                                                    </div>--}}
+{{--																</div>--}}
+{{--																<!-- /Saturday Slot -->--}}
+{{--    @endforeach--}}
+{{--															</div>--}}
+
+
 															<!-- /Schedule Content -->
 
 														</div>
