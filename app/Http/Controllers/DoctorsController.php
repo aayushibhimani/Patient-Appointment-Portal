@@ -6,7 +6,9 @@ use App\Models\Doctor;
 use App\Http\Requests\Doctor\UpdateDoctorRequest;
 use App\Http\Requests\Schedule\CreateScheduleRequest;
 
+use App\Models\Patient;
 use App\Models\Schedule;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +32,10 @@ class DoctorsController extends Controller
     }
     public function patients()
     {
-        return view('doctor/patients');
+        $users = User::all();
+        $patients = Patient::all();
+//        dd($patients);
+        return view('doctor/patients')->with('patients', $patients)->with('users', $users);
     }
     public function profileSettings()
     {
