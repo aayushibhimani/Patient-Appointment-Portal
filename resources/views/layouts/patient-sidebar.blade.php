@@ -1,4 +1,8 @@
-    <div class="profile-sidebar">
+
+<?php use App\Models\Patient;
+$patient = Patient::where('user_id', Auth::user()->id)->first();
+?>
+<div class="profile-sidebar">
         <div class="widget-profile pro-widget-content">
             <div class="profile-info-widget">
                 <a href="#" class="booking-doc-img">

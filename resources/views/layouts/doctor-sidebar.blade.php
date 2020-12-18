@@ -1,3 +1,7 @@
+
+<?php use App\Models\Doctor;
+$doctor = Doctor::where('user_id', Auth::user()->id)->first();
+?>
 <!-- Profile Sidebar -->
 <div class="profile-sidebar">
     <div class="widget-profile pro-widget-content">
@@ -8,7 +12,7 @@
             <div class="profile-det-info">
                 <h3>Dr. {{ucwords(Auth::user()->name)}}</h3>
                 <div class="patient-details">
-                    <h5 class="mb-0">{{$doctor->education_degree}}, {{$doctor->specialization}}</h5>
+                    <h5 class="mb-0">{{$doctor->education_degree}} {{$doctor->specialization}}</h5>
                 </div>
             </div>
         </div>
