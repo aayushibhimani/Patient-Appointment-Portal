@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Doccure') }}</title>
+    <title>{{ config('app.name', 'Patient Appointment Portal') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -39,7 +39,10 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/dropzone/dropzone.min.css') }}">
 
     <!-- Daterangepikcer CSS -->
-		<link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="assets/plugins/swiper/css/swiper.min.css">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -155,31 +158,7 @@
 
                         <!-- Footer Widget -->
                         <div class="footer-widget footer-about footer-about-content">
-                            <h2 class="text-white mb-3" style="font-weight:700;">Doctor Appointment</h2>
-                            <div class="footer-about-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt
-                                    ut labore et dolore magna aliqua. </p>
-                                <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <h2 class="text-white mb-3" style="font-weight:700;">Patient Appointment Portal</h2>
                         </div>
                         <!-- /Footer Widget -->
 
@@ -192,10 +171,10 @@
                             <h2 class="footer-title">For Patients</h2>
                             <ul>
                                 <li><a href="search.html">Search for Doctors</a></li>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="register.html">Register</a></li>
-                                <li><a href="booking.html">Booking</a></li>
-                                <li><a href="patient-dashboard.html">Patient Dashboard</a></li>
+                                <li><a href="{{route('login')}}">Login</a></li>
+                                <li><a href="{{route('register')}}">Register</a></li>
+                                <li><a href="{{route('booking')}}">Booking</a></li>
+                                <li><a href="{{route('home')}}">Patient Dashboard</a></li>
                             </ul>
                         </div>
                         <!-- /Footer Widget -->
@@ -227,7 +206,7 @@
                             <div class="footer-contact-info">
                                 <div class="footer-address">
                                     <span><i class="fas fa-map-marker-alt"></i></span>
-                                    <p> KJSIEIT, Sion, Mumbai </p>
+                                    <p> Mumbai </p>
                                 </div>
                                 <p>
                                     <i class="fas fa-phone-alt"></i>
@@ -309,8 +288,14 @@
     <script src="{{ asset('assets/js/profile-settings.js') }}"></script>
 
     <!-- Daterangepikcer JS -->
-		<script src="assets/js/moment.min.js"></script>
-		<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="assets/plugins/swiper/js/swiper.min.js"></script>
+
+    <!-- Slick JS -->
+    <script src="assets/js/slick.js"></script>
 
     <!-- Custom JS -->
     <script src="{{ asset('assets/js/script.js') }}"></script>
