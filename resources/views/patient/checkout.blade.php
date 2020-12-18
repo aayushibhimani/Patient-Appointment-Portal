@@ -67,59 +67,12 @@
 										<div class="payment-widget">
 											<h4 class="card-title">Payment Method</h4>
 											
-											<!-- Credit Card Payment -->
-											<div class="payment-list">
-												<label class="payment-radio credit-card-option">
-													<input type="radio" name="radio" checked>
-													<span class="checkmark"></span>
-													Credit card
-												</label>
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group card-label">
-															<label for="card_name">Name on Card</label>
-															<input class="form-control" id="card_name" type="text">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group card-label">
-															<label for="card_number">Card Number</label>
-															<input class="form-control" id="card_number" placeholder="1234  5678  9876  5432" type="text">
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="form-group card-label">
-															<label for="expiry_month">Expiry Month</label>
-															<input class="form-control" id="expiry_month" placeholder="MM" type="text">
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="form-group card-label">
-															<label for="expiry_year">Expiry Year</label>
-															<input class="form-control" id="expiry_year" placeholder="YY" type="text">
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="form-group card-label">
-															<label for="cvv">CVV</label>
-															<input class="form-control" id="cvv" type="text">
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- /Credit Card Payment -->
-											
-											<!-- Paypal Payment -->
-											<div class="payment-list">
-												<label class="payment-radio paypal-option">
-													<input type="radio" name="radio">
-													<span class="checkmark"></span>
-													Paypal
-												</label>
-											</div>
-											<!-- /Paypal Payment -->
-											
-											<!-- Terms Accept -->
+										<div class="box-element" id="payment-info">
+			<small>Paypal Options</small>
+			<div id="paypal-button-container"></div>
+		</div>
+	</div>	
+	<!-- Terms Accept -->
 											<div class="terms-accept">
 												<div class="custom-checkbox">
 												   <input type="checkbox" id="terms_accept">
@@ -127,23 +80,7 @@
 												</div>
 											</div>
 											<!-- /Terms Accept -->
-											
-											<!-- Submit Section -->
-											<div class="submit-section mt-4">
-												<button type="submit" class="btn btn-primary submit-btn">Confirm and Pay</button>
-											</div>
-											<!-- /Submit Section -->
-											
-										</div>
-									</form>
-									<!-- /Checkout Form -->
-									
-								</div>
-							</div>
-							
-						</div>
-						
-						<div class="col-md-5 col-lg-4 theiaStickySidebar">
+		<div class="col-md-5 col-lg-4 theiaStickySidebar">
 						
 							<!-- Booking Summary -->
 							<div class="card booking-card">
@@ -198,6 +135,53 @@
 								</div>
 							</div>
 							<!-- /Booking Summary -->
+
+											
+										
+											
+											
+											
+										</div>
+									</form>
+									<!-- /Checkout Form -->
+									
+								</div>
+							</div>
+							
+						</div>
+						
+					
+<script src="https://www.paypal.com/sdk/js?client-id=AXXN3ric8FZZ0G0t2GwgRdGH1No0JV1kvjeSCTAcYJGgrbOYrb2RsvN0TPLRKg4r-u99RJBCICoNYMga"></script>
+<script>
+	var total = 160;
+
+	// Render the PayPal button into #paypal-button-container
+	paypal
+		.Buttons({
+			// Set up the transaction
+			createOrder: function (data, actions) {
+				return actions.order.create({
+					purchase_units: [
+						{
+							amount: {
+								value: parseFloat(total).toFixed(2),
+							},
+						},
+					],
+				});
+			},
+
+			// Finalize the transaction
+			onApprove: function (data, actions) {
+				return actions.order.capture().then(function (details) {
+					// Show a success message to the buyer
+					submitFormData();
+				});
+			},
+		})
+		.render('#paypal-button-container');
+</script>
+
 							
 						</div>
 					</div>
@@ -207,3 +191,34 @@
 			</div>		
 			<!-- /Page Content -->  
 @endsection
+
+
+
+
+
+
+<script type="text/javascript">
+
+	var total =160;
+
+	var form = document.getElementById('form');
+	csrftoken = form.getElementsByTagName('input')[0].value;
+	console.log('Newtoken:', form.getElementsByTagName('input')[0].value);
+	form.addEventListener('submit', function (e) {
+		e.preventDefault();
+		console.log('Form submitted');
+		
+	});
+
+	/*	document.getElementById('make-payment').addEventListener('click', function (e) {
+		submitFormData();
+	}); */
+
+	function submitFormData() {
+		console.log('Payment Button clicked');
+
+		alert('Transaction completed');
+		document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/';
+		window.location.href = "{{ url('booking-success') }}";
+	}
+</script>
