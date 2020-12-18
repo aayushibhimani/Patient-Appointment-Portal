@@ -71,34 +71,16 @@ class DoctorsController extends Controller
         $doctor_deatils=Doctor::where('user_id',auth()->user()->id)->get();
         $doctor = $doctor_deatils[0];
         $data = $request->only(['dob','gender', 'clinic_name','clinic_address','clinic_no','specialization','education_college',
-        'year_of_completion','education_degree','hospital_name','start_date','end_date','destination','registration_name',
-        'registration_year']);
-         $doctor->update($data);
-
-
+            'year_of_completion','education_degree','hospital_name','start_date','end_date','destination','registration_name',
+            'registration_year']);
+        $profile_pic = $request->file('profile_pic');
+        $imageName =  time().'.'.$request->profile_pic->extension();
+        // dd($imageName);
         // $imageName =  time().'.'.$request->profile_pic->extension();
-        // $request->profile_pic->move(public_path('images/uploads/doctors'), $imageName);
-        // //store in db
-        // $doctor->profile_pic = $imageName;
+        $profile_pic->move(public_path('images/uploads/doctors'), $imageName);
+        $data['profile_pic'] = $imageName;
 
-        // $doctor->user_id = $user_id;
-        // $doctor->dob = $request->dob;
-        // $doctor->gender = $request->gender;
-        // $doctor->clinic_name = $request->clinic_name;
-        // $doctor->clinic_address = $request->clinic_address;
-        // $doctor->clinic_no = $request->clinic_no;
-        // $doctor->specialization = $request->specialization;
-        // $doctor->education_college = $request->education_college;
-        // $doctor->year_of_completion = $request->year_of_completion;
-        // $doctor->education_degree = $request->education_degree;
-        // $doctor->hospital_name = $request->hospital_name;
-        // $doctor->start_date = $request->start_date;
-        // $doctor->end_date = $request->end_date;
-        // $doctor->destination = $request->destination;
-        // $doctor->registration_name = $request->registration_name;
-        // $doctor->registration_year =
-        // $request->registration_year;
-        // $doctor->save();
+        $doctor->update($data);
 
         return redirect(route('doctor-profile-settings'));
     }

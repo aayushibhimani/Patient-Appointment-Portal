@@ -58,7 +58,7 @@
                                 <div class="form-group">
                                     <div class="change-avatar">
                                         <div class="profile-img">
-                                            <img src="#" alt="User Image">
+                                            <img src="{{asset('images/uploads/doctors/'. $doctor->profile_pic)}}" alt="User Image">
                                         </div>
                                         <div class="upload-img">
                                             <div class="change-photo-btn">
@@ -94,7 +94,7 @@
                                 <div class="form-group">
                                     <label>Gender</label>
                                     <select class="form-control select" required name="gender" value = "{{$doctor->gender}}">
-                                        <option>Select</option>
+{{--                                        <option>Select</option>--}}
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
