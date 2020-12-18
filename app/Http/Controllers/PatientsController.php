@@ -70,9 +70,11 @@ class PatientsController extends Controller
         $patient = $patient_details[0];
         // dd($patient);
         // $image = $request->file('image')->store('patients');
-        $data = $request->only(['dob','blood_group', 'address']);
-        // $data['profile_pic'] = $image;
-        // dd($data);
+        $data = $request->only(['dob','blood_group', 'address','profile_pic']);
+        $profile_pic = $request->file('profile_pic');
+        $imageName =  time().'.'.$request->profile_pic->extension();
+        $profile_pic->move(public_path('images/uploads/patients'), $imageName);
+        $data['profile_pic'] = $imageName;
         $patient->update($data);
         return redirect(route('patient-profile-settings'));
     }

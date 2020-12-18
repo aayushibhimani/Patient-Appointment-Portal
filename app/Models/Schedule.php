@@ -9,7 +9,7 @@ class Schedule extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'day','start_time','end_time'
+        'day','start_time','end_time','doctor_id'
     ];
     public function appointments(){
         return $this->hasMany(Appointment::class);
