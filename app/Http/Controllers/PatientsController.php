@@ -35,6 +35,15 @@ class PatientsController extends Controller
     {
         return view('patient/booking');
     }
+    public function checkout()
+    {
+        return view('patient/checkout');
+    }
+
+    public function paymentSuccess()
+    {
+        return view('patient/payment-success');
+    }
     /**
      * Show the form for creating a new resource.
      *

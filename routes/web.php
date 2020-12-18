@@ -32,11 +32,15 @@ Route::get('/patient-view-invoice', [App\Http\Controllers\PatientsController::cl
 Route::get('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'profileSettings'])->name('patient-profile-settings');
 Route::get('/doctor-profile', [App\Http\Controllers\PatientsController::class, 'doctorProfile'])->name('doctor-profile');
 Route::get('/booking', [App\Http\Controllers\PatientsController::class, 'booking'])->name('booking');
+Route::get('/checkout', [App\Http\Controllers\PatientsController::class, 'checkout'])->name('checkout');
+Route::get('/payment-success', [App\Http\Controllers\PatientsController::class, 'paymentSuccess'])->name('payment-success');
+
+
 
 
 Route::middleware(['auth','doctor'])->group(function(){
    // Route::resource('doctor', 'App\Http\Controllers\DoctorsController');
-   Route::get('/appointments', [App\Http\Controllers\DoctorsController::class, 'appointments'])->name('doctor-appointments');
+    Route::get('/appointments', [App\Http\Controllers\DoctorsController::class, 'appointments'])->name('doctor-appointments');
     Route::get('/my-patients', [App\Http\Controllers\DoctorsController::class, 'patients'])->name('doctor-patients');
     Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'profileSettings'])->name('doctor-profile-settings');
     Route::get('/patient-profile', [App\Http\Controllers\DoctorsController::class, 'patientProfile'])->name('patient-profile');
