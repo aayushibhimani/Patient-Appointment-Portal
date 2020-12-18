@@ -55,7 +55,7 @@ class DoctorsController extends Controller
     {
 
         //used to create new schedule timimgs
-        //dd($request->all());
+        dd($request->all());
         $request->validate([
             'day' => 'required',
             'start_time' => 'required',
