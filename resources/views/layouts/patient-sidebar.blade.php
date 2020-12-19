@@ -44,7 +44,8 @@ $patient = Patient::where('user_id', Auth::user()->id)->first();
                     </a>
                 </li>
                 <li>
-                    <a href="index.html">
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Logout</span>
                     </a>

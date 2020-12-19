@@ -474,7 +474,7 @@
                 </div>
                 <!-- Search -->
                 <div class="search-box">
-                    <form action="{{route('doctor-profile')}}">
+                    <form action="{{route('search')}}" method="POST">
                         @csrf
                         <div class="form-group search-location">
                             <select name="location" class="form-control" id="">

@@ -199,6 +199,6 @@ function submitFormData() {
 
     alert('Transaction completed');
     document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/';
-    window.location.href = "{{ url('booking-success') }}";
+    window.location.href = "{{ route('payment-success') }}";
 }
 </script>
