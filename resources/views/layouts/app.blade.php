@@ -39,10 +39,10 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/dropzone/dropzone.min.css') }}">
 
     <!-- Daterangepikcer CSS -->
-    <link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="assets/plugins/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/swiper/css/swiper.min.css') }}">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -258,14 +258,14 @@
     <script src="{{ asset('assets/js/profile-settings.js') }}"></script>
 
     <!-- Daterangepikcer JS -->
-    <script src="assets/js/moment.min.js"></script>
-    <script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="{{ asset('assets/js/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/daterangepicker/daterangepicker.js') }}"></script>
 
     <!-- Swiper JS -->
-    <script src="assets/plugins/swiper/js/swiper.min.js"></script>
+    <script src="{{ asset('assets/plugins/swiper/js/swiper.min.js') }}"></script>
 
     <!-- Slick JS -->
-    <script src="assets/js/slick.js"></script>
+    <script src="{{ asset('assets/js/slick.js') }}"></script>
 
     <!-- Custom JS -->
     <script src="{{ asset('assets/js/script.js') }}"></script>

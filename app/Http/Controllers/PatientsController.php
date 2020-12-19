@@ -39,18 +39,13 @@ class PatientsController extends Controller
     }
     public function booking($id)
     {
-//        dd($id);
         $doctor_details = Doctor::where('id', $id)->get();
         $doctor = $doctor_details[0];
         $user = User::where('id', $doctor->user_id)->get();
-//        dd($user);
-        $user = $user[0];
-//        dd($user);
-
-        //        dd($doctor);
-        $schedules = Schedule::where('doctor_id', $id)->get();
-//        dd($schedules);
-        return view('patient/booking')->with('user',$user)->with('doctor', $doctor)->with('schedules', $schedules);
+        $user = $user[0];        
+        $schedules = Schedule::where('doctor_id', $id)->get();      
+        $total = count($schedules);  
+        return view('patient/booking')->with('user',$user)->with('doctor', $doctor)->with('schedules', $schedules)->with('total', $total);
     }
     public function checkout()
     {

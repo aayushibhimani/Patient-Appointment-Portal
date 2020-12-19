@@ -117,18 +117,17 @@
             <div class="col-md-12 col-lg-8 col-xl-9">
 
                 <!-- Doctor Widget -->
-                @for($t=0;$t<$total;$t++)
-                <div class="card">
+                @for($t=0;$t<$total;$t++) <div class="card">
                     <div class="card-body">
                         <div class="doctor-widget">
                             <div class="doc-info-left">
                                 <div class="doctor-img">
                                     <a href="doctor-profile.html">
                                         @if($doctors[$t]->profile_pic)
-                                            <img src="{{asset('images/uploads/doctors/'. $doctors[$t]->profile_pic)}}" class="img-fluid"
-                                            alt="Doctor Image">
+                                        <img src="{{asset('images/uploads/doctors/'. $doctors[$t]->profile_pic)}}"
+                                            class="img-fluid" alt="Doctor Image">
                                         @else
-                                             <img src="{{asset('images/uploads/doctors/user.png')}}" class="img-fluid"
+                                        <img src="{{asset('images/uploads/doctors/user.png')}}" class="img-fluid"
                                             alt="Doctor Image">
                                         @endif
                                     </a>
@@ -138,15 +137,16 @@
                                     <p class="doc-speciality">{{$doctors[$t]->education_degree}}</p>
                                     <h6 class="doctor-email">{{$users[$t]->email}}</h6>
                                     <h5 class="doc-department">
-                                     @if($doctors[$t]->specialization)
-                                     <img src="assets/img/specialities/specialities-05.png"
-                                            class="img-fluid" alt="Speciality">{{$doctors[$t]->specialization}}
-                                    @endif
+                                        @if($doctors[$t]->specialization)
+                                        <img src="assets/img/specialities/specialities-05.png" class="img-fluid"
+                                            alt="Speciality">{{$doctors[$t]->specialization}}
+                                        @endif
                                     </h5>
                                     <div class="clinic-details">
-                                       @if($doctors[$t]->clinic_address)
-                                       <p class="doc-location"><i class="fas fa-map-marker-alt"></i> {{$doctors[$t]->clinic_address}}</p>
-                                       @endif
+                                        @if($doctors[$t]->clinic_address)
+                                        <p class="doc-location"><i class="fas fa-map-marker-alt"></i>
+                                            {{$doctors[$t]->clinic_address}}</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -159,24 +159,24 @@
                                     </ul>
                                 </div>
                                 <div class="clinic-booking">
-{{--                                    {{dd($users[$t]->id)}}--}}
+                                    {{--                                    {{dd($users[$t]->id)}}--}}
                                     <!-- <a class="view-pro-btn" href="doctor-profile.html">View Profile</a> -->
                                     <a class="apt-btn" href="{{route('booking', $users[$t]->id)}}">Book Appointment</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endfor
-                <!-- /Doctor Widget -->
+            </div>
+            @endfor
+            <!-- /Doctor Widget -->
 
-                <div class="load-more text-center">
-                    <a class="btn btn-primary btn-sm" href="javascript:void(0);">Load More</a>
-                </div>
+            <div class="load-more text-center">
+                <a class="btn btn-primary btn-sm" href="javascript:void(0);">Load More</a>
             </div>
         </div>
-
     </div>
+
+</div>
 
 </div>
 <!-- /Page Content -->
