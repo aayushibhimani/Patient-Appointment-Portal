@@ -119,39 +119,52 @@
                                 </div>
                                 <div class="exist-customer">Existing Customer? <a href="#">Click here to login</a></div>
                             </div>
-                            <!-- /Personal Information -->
 
-                            <div class="payment-widget">
-                                <h4 class="card-title">Payment Method</h4>
-
-                                <div class="box-element" id="payment-info">
-                                    <div class="mb-2"><small>Paypal Options</small></div>
-                                    <div id="paypal-button-container"></div>
-                                </div>
-                            </div>
-                            <!-- Terms Accept -->
-                            <!-- <div class="terms-accept">
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="terms_accept">
-                                    <label for="terms_accept">I have read and accept <a href="#">Terms &amp;
-                                            Conditions</a></label>
-                                </div>
-                            </div> -->
-                            <!-- /Terms Accept -->
-
-                        </form>
-                        <!-- /Checkout Form -->
-
-                    </div>
+                            
+@php
+        $stripe_key = 'pk_test_51I06bJHOJcfRNvD1PlIb7MVWf1by83qNdERbJrVQx4ypd4qIkggsrLM7vRqvvkI9ZREltiZnV1LSeK1yea4Rwjat0052YzAybq';
+    @endphp
+    <div class="container" style="margin-top:10%;margin-bottom:10%">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-8">
+                <div class="">
+                    <p>You will be charged rs 160</p>
                 </div>
-
+                <div class="card">
+                    <form action="{{route('checkout')}}"  method="post" id="payment-form">
+                        @csrf                    
+                        <div class="form-group">
+                            <div class="card-header">
+                                <label for="card-element">
+                                    Enter your credit card information
+                                </label>
+                            </div>
+                            <div class="card-body">
+                                <div id="card-element">
+                                <!-- A Stripe Element will be inserted here. -->
+                                </div>
+                                <!-- Used to display form errors. -->
+                                <div id="card-errors" role="alert"></div>
+                                <input type="hidden" name="plan" value="" />
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                        <button
+                        id="card-button"
+                        class="btn btn-dark"
+                        type="submit"
+                        data-secret="{{ $intent }}"
+                        > Pay </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-
-            <script
+        </div>
+    </div>
+<script
                 src="https://www.paypal.com/sdk/js?client-id=AXXN3ric8FZZ0G0t2GwgRdGH1No0JV1kvjeSCTAcYJGgrbOYrb2RsvN0TPLRKg4r-u99RJBCICoNYMga">
             </script>
-            <script>
+<script>
             var total = 160;
 
             // Render the PayPal button into #paypal-button-container
@@ -180,18 +193,71 @@
             </script>
 
 
-        </div>
-    </div>
+<script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Custom styling can be passed to options when creating an Element.
+        // (Note that this demo uses a wider set of styles than the guide below.)
 
-</div>
-
-</div>
-<!-- /Page Content -->
-@endsection
-
-
-
-
+        var style = {
+            base: {
+                color: '#32325d',
+                lineHeight: '18px',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+    
+        const stripe = Stripe('{{ $stripe_key }}', { locale: 'en' }); // Create a Stripe client.
+        const elements = stripe.elements(); // Create an instance of Elements.
+        const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
+        const cardButton = document.getElementById('card-button');
+        const clientSecret = cardButton.dataset.secret;
+    
+        cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
+    
+        // Handle real-time validation errors from the card Element.
+        cardElement.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+    
+        // Handle form submission.
+        var form = document.getElementById('payment-form');
+    
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+        stripe.handleCardPayment(clientSecret, cardElement, {
+                payment_method_data: {
+                    //billing_details: { name: cardHolderName.value }
+                }
+            })
+            .then(function(result) {
+                console.log(result);
+                if (result.error) {
+                    // Inform the user if there was an error.
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    console.log(result);
+                    form.submit();
+                }
+            });
+        });
+    </script>
+</body>
 
 
 <script type="text/javascript">
@@ -206,15 +272,100 @@ form.addEventListener('submit', function(e) {
 
 });
 
-/*	document.getElementById('make-payment').addEventListener('click', function (e) {
+	document.getElementById('make-payment').addEventListener('click', function (e) {
 	submitFormData();
-}); */
+}); 
 
-function submitFormData() {
+<function submitFormData() {
     console.log('Payment Button clicked');
 
     alert('Transaction completed');
     document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/';
-    window.location.href = "{{ url('booking-success') }}";
-}
-</script>
+    window.location.href = "{{ route('payment-success') }}";
+} 
+</script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+<!-- /Page Content -->
+
+
+
+
+
+
+
+@endsection

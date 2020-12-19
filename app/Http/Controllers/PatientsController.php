@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Patient\UpdateProfileRequest;
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Razorpay\Api\Api;
+use Session;
 
 class PatientsController extends Controller
 {
@@ -39,8 +41,32 @@ class PatientsController extends Controller
     }
     public function checkout()
     {
-        return view('patient/checkout');
+        \Stripe\Stripe::setApiKey('sk_test_51I06bJHOJcfRNvD19LpfaClE4mehNa33spMbNmRSbT48CtY5tgysRZrT1emrUVtUzAYHjD0Vlid3OuQc6GmWp1TT00H9hf7Uw1');
+		$amount = 160;
+		$amount *= 100;
+        $amount = (int) $amount;
+        
+        $payment_intent = \Stripe\PaymentIntent::create([
+			'description' => 'Stripe Test Payment',
+			'amount' => $amount,
+			'currency' => 'INR',
+			'description' => 'Payment From Patient',
+			'payment_method_types' => ['card'],
+		]);
+		$intent = $payment_intent->client_secret;
+        return view('patient/checkout',compact('intent'));
     }
+
+
+
+    public function afterPayment()
+    {
+        route('payment-success');
+        }
+
+
+    
+
 
     public function paymentSuccess()
     {
