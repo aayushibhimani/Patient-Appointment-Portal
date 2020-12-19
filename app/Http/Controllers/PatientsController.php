@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\Patient\UpdateProfileRequest;
-use App\Models\Patient;
-use App\Models\User;
 use App\Models\Doctor;
+use App\Models\Patient;
+use App\Models\Schedule;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 
@@ -36,9 +37,12 @@ class PatientsController extends Controller
     {
         return view('patient/doctor-profile');
     }
-    public function booking()
+    public function booking($id)
     {
-        return view('patient/booking');
+        $user = User::all($id);
+        $doctor = Doctor::where('user_id', $id);
+        $schedules = Schedule::all();
+        return view('patient/booking')->with('user',$user)->with('doctor', $doctor)->with('schedules', $schedules);
     }
     public function checkout()
     {
