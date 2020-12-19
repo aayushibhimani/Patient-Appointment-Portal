@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\Patient\UpdateProfileRequest;
+use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Schedule;
+use App\Models\User;
 use Illuminate\Http\Request;
+
 use Razorpay\Api\Api;
 use Session;
+use DB;
 
 class PatientsController extends Controller
 {
@@ -35,9 +40,20 @@ class PatientsController extends Controller
     {
         return view('patient/doctor-profile');
     }
-    public function booking()
+    public function booking($id)
     {
-        return view('patient/booking');
+//        dd($id);
+        $doctor_details = Doctor::where('id', $id)->get();
+        $doctor = $doctor_details[0];
+        $user = User::where('id', $doctor->user_id)->get();
+//        dd($user);
+        $user = $user[0];
+//        dd($user);
+
+        //        dd($doctor);
+        $schedules = Schedule::where('doctor_id', $id)->get();
+//        dd($schedules);
+        return view('patient/booking')->with('user',$user)->with('doctor', $doctor)->with('schedules', $schedules);
     }
     public function checkout()
     {
@@ -75,7 +91,12 @@ class PatientsController extends Controller
 
     public function search()
     {
-        return view('patient/search');
+        $doctors = DB::table('doctors')->get();
+        $user_ids = Doctor::select('user_id')->get();
+        $users = User::whereIn('id',$user_ids)->get();
+        $total = count($users);
+        // dd($total);
+        return view('patient/search',compact(['users','doctors','total']));
     }
     /**
      * Show the form for creating a new resource.

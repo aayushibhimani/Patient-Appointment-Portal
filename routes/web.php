@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
 
 Auth::routes();
 
@@ -29,12 +31,11 @@ Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'cha
 
 //Route::get('/patient-dashboard', [App\Http\Controllers\PatientsController::class, 'index'])->name('patient-dashboard');
 Route::get('/patient-view-invoice', [App\Http\Controllers\PatientsController::class, 'viewInvoice'])->name('patient-view-invoice');
-Route::get('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'profileSettings'])->name('patient-profile-settings');
-Route::get('/doctor-profile', [App\Http\Controllers\PatientsController::class, 'doctorProfile'])->name('doctor-profile');
-Route::get('/booking', [App\Http\Controllers\PatientsController::class, 'booking'])->name('booking');
+
 Route::get('/checkout', [App\Http\Controllers\PatientsController::class, 'checkout'])->name('checkout');
 Route::get('/booking-success', [App\Http\Controllers\PatientsController::class, 'paymentSuccess'])->name('payment-success');
-Route::get('/search', [App\Http\Controllers\PatientsController::class, 'search'])->name('search');
+
+
 
 
 
@@ -50,9 +51,15 @@ Route::middleware(['auth','doctor'])->group(function(){
     // Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('store-settings');
     //Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'show'])->name('show-settings');
     Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('doctor-store-settings');
+    Route::delete('/destroy/{id}', [App\Http\Controllers\DoctorsController::class, 'destroy'])->name('destroy');
 });
 
+Route::get('/search', [App\Http\Controllers\PatientsController::class, 'search'])->name('search');
 Route::middleware(['auth','patient'])->group(function(){
+    Route::get('/search', [App\Http\Controllers\PatientsController::class, 'search'])->name('search');
     Route::get('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'profileSettings'])->name('patient-profile-settings');
     Route::post('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'store'])->name('patient-store-settings');
+
+    Route::get('/booking/{id}', [App\Http\Controllers\PatientsController::class, 'booking'])->name('booking');
+    Route::get('/doctor-profile', [App\Http\Controllers\PatientsController::class, 'doctorProfile'])->name('doctor-profile');
 });

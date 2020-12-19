@@ -6,7 +6,9 @@ use App\Models\Doctor;
 use App\Http\Requests\Doctor\UpdateDoctorRequest;
 use App\Http\Requests\Schedule\CreateScheduleRequest;
 
+use App\Models\Patient;
 use App\Models\Schedule;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +32,11 @@ class DoctorsController extends Controller
     }
     public function patients()
     {
-        return view('doctor/patients');
+        $users = User::all();
+        $patients = Patient::all();
+        $total = count($users);
+//        dd($patients);
+        return view('doctor/patients')->with('patients', $patients)->with('users', $users)->with('total',$total);
     }
     public function profileSettings()
     {
@@ -47,7 +53,10 @@ class DoctorsController extends Controller
     public function scheduleTimings()
     {
         //will display the schedule page
-        $schedules = Schedule::where('user_id', auth()->user()->id)->get();
+        $doctor_details = Doctor::where('user_id',auth()->user()->id)->get();
+        $doctor= $doctor_details[0];
+        $doctor_id = $doctor->id;
+        $schedules = Schedule::where('doctor_id', $doctor_id)->get();
         //$schedules = $schedules_details[1];
         return view('doctor/schedule-timings')->with('schedules', $schedules);
     }
@@ -55,21 +64,27 @@ class DoctorsController extends Controller
     {
 
         //used to create new schedule timimgs
-        //dd($request->all());
+        // dd($request->all());
+        $size = count(collect($request)->get('start_time'));
+
         $request->validate([
             'day' => 'required',
             'start_time' => 'required',
             'end_time' => 'required'
         ]);
-        $doctor = Auth::user()->id;
-        //dd($doctor);
-        $schedule = new Schedule();
-        $schedule->day = $request->day;
-        $schedule->start_time = $request->start_time;
-        $schedule->end_time = $request->end_time;
-        $schedule->user_id = $doctor;
-        $schedule->save();
-        return view('doctor/schedule-timings');
+        $doctor_details = Doctor::where('user_id',auth()->user()->id)->get();
+        $doctor= $doctor_details[0];
+        $doctor_id = $doctor->id;
+        for($i = 0; $i < $size; $i++)
+        {
+            $schedule = new Schedule();
+            $schedule->day = $request->day;
+            $schedule->start_time = $request->start_time[$i];
+            $schedule->end_time = $request->end_time[$i];
+            $schedule->doctor_id = $doctor_id;
+            $schedule->save();
+        }
+        return redirect(route('schedule-timings'));
 
     }
 
@@ -150,8 +165,9 @@ class DoctorsController extends Controller
      * @param  \App\Models\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy($id)
     {
-        //
+        Schedule::destroy($id);
+        return redirect()->back();
     }
 }

@@ -1,23 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Breadcrumb -->
-<div class="breadcrumb-bar">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-md-12 col-12">
-                <nav aria-label="breadcrumb" class="page-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Checkout</li>
-                    </ol>
-                </nav>
-                <h2 class="breadcrumb-title">Checkout</h2>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /Breadcrumb -->
+
 
 <!-- Page Content -->
 <div class="content">
@@ -161,36 +145,6 @@
             </div>
         </div>
     </div>
-<script
-                src="https://www.paypal.com/sdk/js?client-id=AXXN3ric8FZZ0G0t2GwgRdGH1No0JV1kvjeSCTAcYJGgrbOYrb2RsvN0TPLRKg4r-u99RJBCICoNYMga">
-            </script>
-<script>
-            var total = 160;
-
-            // Render the PayPal button into #paypal-button-container
-            paypal
-                .Buttons({
-                    // Set up the transaction
-                    createOrder: function(data, actions) {
-                        return actions.order.create({
-                            purchase_units: [{
-                                amount: {
-                                    value: parseFloat(total).toFixed(2),
-                                },
-                            }, ],
-                        });
-                    },
-
-                    // Finalize the transaction
-                    onApprove: function(data, actions) {
-                        return actions.order.capture().then(function(details) {
-                            // Show a success message to the buyer
-                            submitFormData();
-                        });
-                    },
-                })
-                .render('#paypal-button-container');
-            </script>
 
 
 <script src="https://js.stripe.com/v3/"></script>
@@ -258,6 +212,36 @@
         });
     </script>
 </body>
+<script
+                src="https://www.paypal.com/sdk/js?client-id=AXXN3ric8FZZ0G0t2GwgRdGH1No0JV1kvjeSCTAcYJGgrbOYrb2RsvN0TPLRKg4r-u99RJBCICoNYMga">
+            </script>
+<script>
+            var total = 160;
+
+            // Render the PayPal button into #paypal-button-container
+            paypal
+                .Buttons({
+                    // Set up the transaction
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    value: parseFloat(total).toFixed(2),
+                                },
+                            }, ],
+                        });
+                    },
+
+                    // Finalize the transaction
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                            // Show a success message to the buyer
+                            submitFormData();
+                        });
+                    },
+                })
+                .render('#paypal-button-container');
+            </script>
 
 
 <script type="text/javascript">
@@ -282,6 +266,7 @@ form.addEventListener('submit', function(e) {
     alert('Transaction completed');
     document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/';
     window.location.href = "{{ route('payment-success') }}";
+<<<<<<< HEAD
 } 
 </script> 
 
@@ -369,3 +354,7 @@ form.addEventListener('submit', function(e) {
 
 
 @endsection
+=======
+}
+</script>
+>>>>>>> e4b37e48f5a7fcc9cbfb1384c009bb697121258c
