@@ -5,7 +5,11 @@ $patient = Patient::where('user_id', Auth::user()->id)->first();
     <div class="widget-profile pro-widget-content">
         <div class="profile-info-widget">
             <a href="#" class="booking-doc-img">
+            @if($patient->profile_pic)
                 <img src="{{asset('images/uploads/patients/'.$patient->profile_pic)}}" alt="User Image">
+            @else
+                <img src="{{asset('images/uploads/patients/user.png')}}" alt="User Image">
+            @endif
             </a>
             <div class="profile-det-info">
                 <h3>{{ucwords(Auth::user()->name)}}</h3>
