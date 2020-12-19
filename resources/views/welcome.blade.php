@@ -636,7 +636,7 @@
                                         <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
+                                        <a href="#" class="btn book-btn">Book Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -672,7 +672,7 @@
                                         <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
+                                        <a href="#" class="btn book-btn">Book Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -708,7 +708,7 @@
                                         <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
+                                        <a href="#" class="btn book-btn">Book Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -744,7 +744,7 @@
                                         <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
+                                        <a href="#" class="btn book-btn">Book Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -780,7 +780,7 @@
                                         <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
+                                        <a href="#" class="btn book-btn">Book Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -816,7 +816,7 @@
                                         <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
+                                        <a href="#" class="btn book-btn">Book Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -852,7 +852,7 @@
                                         <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
+                                        <a href="#" class="btn book-btn">Book Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -891,7 +891,7 @@
                                 <li><a href="{{route('search')}}">Search for Doctors</a></li>
                                 <li><a href="{{route('login')}}">Login</a></li>
                                 <li><a href="{{route('register')}}">Register</a></li>
-                                <li><a href="{{route('booking')}}">Booking</a></li>
+                                <li><a href="#">Booking</a></li>
                                 <li><a href="{{route('home')}}">Patient Dashboard</a></li>
                             </ul>
                         </div>
