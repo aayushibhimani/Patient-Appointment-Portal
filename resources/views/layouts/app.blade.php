@@ -44,6 +44,13 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/swiper/css/swiper.min.css') }}">
 
+    		
+		<!-- Fancybox CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/fancybox/jquery.fancybox.min.css') }}">
+        
+        		<!-- Datetimepicker CSS -->
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
+
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
@@ -266,6 +273,13 @@
 
     <!-- Slick JS -->
     <script src="{{ asset('assets/js/slick.js') }}"></script>
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+		
+		<!-- Fancybox JS -->
+		<script src="{{ asset('assets/plugins/fancybox/jquery.fancybox.min.js') }}"></script>
 
     <!-- Custom JS -->
     <script src="{{ asset('assets/js/script.js') }}"></script>

@@ -1,37 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Breadcrumb -->
-<div class="breadcrumb-bar">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-md-8 col-12">
-                <nav aria-label="breadcrumb" class="page-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Search</li>
-                    </ol>
-                </nav>
-                <h2 class="breadcrumb-title">2245 matches found for : Dentist In Bangalore</h2>
-            </div>
-            <div class="col-md-4 col-12 d-md-block d-none">
-                <div class="sort-by">
-                    <span class="sort-title">Sort by</span>
-                    <span class="sortby-fliter">
-                        <select class="select">
-                            <option>Select</option>
-                            <option class="sorting">Rating</option>
-                            <option class="sorting">Popular</option>
-                            <option class="sorting">Latest</option>
-                            <option class="sorting">Free</option>
-                        </select>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /Breadcrumb -->
 
 <!-- Page Content -->
 <div class="content">
@@ -53,71 +22,33 @@
                         </div>
                         <div class="filter-widget">
                             <h4>Gender</h4>
-                            <div>
-                                <label class="custom_check">
-                                    <input type="checkbox" name="gender_type" checked>
-                                    <span class="checkmark"></span> Male Doctor
-                                </label>
-                            </div>
-                            <div>
-                                <label class="custom_check">
-                                    <input type="checkbox" name="gender_type">
-                                    <span class="checkmark"></span> Female Doctor
-                                </label>
-                            </div>
+                            <div class="button-group filter-button-group">
+  <button class="btn btn-outline-secondary" data-filter="*">All</button>
+  <button class="btn btn-outline-secondary" data-filter=".Male">Male</button>
+  <button class="btn btn-outline-secondary" data-filter=".Female">Female</button>
+</div>
                         </div>
                         <div class="filter-widget">
                             <h4>Select Specialist</h4>
-                            <div>
-                                <label class="custom_check">
-                                    <input type="checkbox" name="select_specialist" checked>
-                                    <span class="checkmark"></span> Urology
-                                </label>
-                            </div>
-                            <div>
-                                <label class="custom_check">
-                                    <input type="checkbox" name="select_specialist" checked>
-                                    <span class="checkmark"></span> Neurology
-                                </label>
-                            </div>
-                            <div>
-                                <label class="custom_check">
-                                    <input type="checkbox" name="select_specialist">
-                                    <span class="checkmark"></span> Dentist
-                                </label>
-                            </div>
-                            <div>
-                                <label class="custom_check">
-                                    <input type="checkbox" name="select_specialist">
-                                    <span class="checkmark"></span> Orthopedic
-                                </label>
-                            </div>
-                            <div>
-                                <label class="custom_check">
-                                    <input type="checkbox" name="select_specialist">
-                                    <span class="checkmark"></span> Cardiologist
-                                </label>
-                            </div>
-                            <div>
-                                <label class="custom_check">
-                                    <input type="checkbox" name="select_specialist">
-                                    <span class="checkmark"></span> Cardiologist
-                                </label>
-                            </div>
-                        </div>
-                        <div class="btn-search">
-                            <button type="button" class="btn btn-block">Search</button>
-                        </div>
+                            <div class="button-group filter-button-group">
+  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter="*">All</button>
+  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter=".Urology">Urology</button>
+  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter=".ENT">ENT</button>
+  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter=".Cancer">Cancer</button>
+  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter=".Dentist">Dentist</button>
+  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter=".Opthalmologist">Opthalmologist</button>
+</div>                            
+                        </div>                        
                     </div>
                 </div>
                 <!-- /Search Filter -->
 
             </div>
 
-            <div class="col-md-12 col-lg-8 col-xl-9">
+            <div class="col-md-12 col-lg-8 col-xl-9 doctor-container">
 
                 <!-- Doctor Widget -->
-                @for($t=0;$t<$total;$t++) <div class="card">
+                @for($t=0;$t<$total;$t++) <div class="card doctor-card {{$doctors[$t]->gender}}  {{ str_replace(',',' ',$doctors[$t]->specialization) }}">  
                     <div class="card-body">
                         <div class="doctor-widget">
                             <div class="doc-info-left">
@@ -168,11 +99,7 @@
                     </div>
             </div>
             @endfor
-            <!-- /Doctor Widget -->
-
-            <div class="load-more text-center">
-                <a class="btn btn-primary btn-sm" href="javascript:void(0);">Load More</a>
-            </div>
+            <!-- /Doctor Widget -->            
         </div>
     </div>
 
@@ -180,4 +107,8 @@
 
 </div>
 <!-- /Page Content -->
+
+<script>
+
+</script>
 @endsection

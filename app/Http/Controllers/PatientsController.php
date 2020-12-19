@@ -90,7 +90,7 @@ class PatientsController extends Controller
 
     public function search()
     {
-        $doctors = DB::table('doctors')->get();
+        $doctors = DB::table('doctors')->get();        
         $user_ids = Doctor::select('user_id')->get();
         $users = User::whereIn('id',$user_ids)->get();
         $total = count($users);

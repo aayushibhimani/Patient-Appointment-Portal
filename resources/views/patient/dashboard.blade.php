@@ -67,11 +67,13 @@ $appointments = Appointment::where('patient_id', $patient[0]->id)->get();
                                                 </td>
                                                 <td class="text-right">
                                                     <div class="table-action">
-                                                        <a href="javascript:void(0);"
-                                                            class="btn btn-sm bg-primary-light">
-                                                            <i class="fas fa-print"></i> Print
-                                                        </a>
-                                                        <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+                                                        <form class="d-" action="{{route('patient-view-invoice')}}" method="">
+                                                            <button type="submit"
+                                                                class="btn btn-sm bg-primary-light">
+                                                                <i class="fas fa-print"></i> Print
+                                                            </button>
+                                                        </form>
+                                                        <a href="javascript:void(0);" class="btn btn-sm bg-info-light" type="button" data-toggle="modal" data-target="#exampleModal">
                                                             <i class="far fa-eye"></i> View
                                                         </a>
                                                     </div>
@@ -82,15 +84,31 @@ $appointments = Appointment::where('patient_id', $patient[0]->id)->get();
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 <!-- /Page Content -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection

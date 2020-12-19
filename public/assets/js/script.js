@@ -521,5 +521,15 @@
 	// 		              }
 	// 		            });
 	// 		          });
+
+var $grid = $('.doctor-container').isotope({
+	// options
+	itemSelector: '.doctor-card',
+	layoutMode: 'fitRows'
+  });
+$('.filter-button-group').on( 'click', 'button', function() {
+	var filterValue = $(this).attr('data-filter');
+	$grid.isotope({ filter: filterValue });
+  });
 	
 })(jQuery);
