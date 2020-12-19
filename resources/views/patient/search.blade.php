@@ -53,7 +53,7 @@
             <div class="col-md-12 col-lg-8 col-xl-9 doctor-container">
 
                 <!-- Doctor Widget -->
-                @for($t=0;$t<$total;$t++) <div
+                @for($t=0;$t<$total;$t++) <div style="width:97%;"
                     class="card doctor-card {{$doctors[$t]->gender}}  {{ str_replace(',',' ',$doctors[$t]->specialization) }}">
                     <div class="card-body">
                         <div class="doctor-widget">
