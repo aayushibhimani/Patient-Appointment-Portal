@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\Patient\UpdateProfileRequest;
 use App\Models\Patient;
+use App\Models\User;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
+use DB;
 
 class PatientsController extends Controller
 {
@@ -49,7 +52,12 @@ class PatientsController extends Controller
 
     public function search()
     {
-        return view('patient/search');
+        $doctors = DB::table('doctors')->get();
+        $user_ids = Doctor::select('user_id')->get();
+        $users = User::whereIn('id',$user_ids)->get();
+        $total = count($users);
+        // dd($total);
+        return view('patient/search',compact(['users','doctors','total']));
     }
     /**
      * Show the form for creating a new resource.
