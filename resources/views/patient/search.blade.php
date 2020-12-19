@@ -59,7 +59,7 @@
                         <div class="doctor-widget">
                             <div class="doc-info-left">
                                 <div class="doctor-img">
-                                    <a href="doctor-profile.html">
+                                    <a href="{{route('doctor-profile')}}">
                                         @if($doctors[$t]->profile_pic)
                                         <img src="{{asset('images/uploads/doctors/'. $doctors[$t]->profile_pic)}}"
                                             class="img-fluid" alt="Doctor Image">
@@ -70,7 +70,8 @@
                                     </a>
                                 </div>
                                 <div class="doc-info-cont">
-                                    <h4 class="doc-name"><a href="doctor-profile.html">Dr. {{$users[$t]->name}}</a></h4>
+                                    <h4 class="doc-name"> <a href="{{route('doctor-profile')}}">Dr.
+                                            {{$users[$t]->name}}</a></h4>
                                     <p class="doc-speciality">{{$doctors[$t]->education_degree}}</p>
                                     <h6 class="doctor-email">{{$users[$t]->email}}</h6>
                                     <h5 class="doc-department">
