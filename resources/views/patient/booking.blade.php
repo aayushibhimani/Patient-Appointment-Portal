@@ -18,15 +18,16 @@
                             </a>
                             <div class="booking-info">
                                 <h4><a href="#">Dr. {{ucwords($user->name)}}</a></h4>
-{{--                                <div class="rating">--}}
-{{--                                    <i class="fas fa-star filled"></i>--}}
-{{--                                    <i class="fas fa-star filled"></i>--}}
-{{--                                    <i class="fas fa-star filled"></i>--}}
-{{--                                    <i class="fas fa-star filled"></i>--}}
-{{--                                    <i class="fas fa-star"></i>--}}
-{{--                                    <span class="d-inline-block average-rating">35</span>--}}
-{{--                                </div>--}}
-                                <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> {{ucwords($doctor->address)}}</p>
+                                {{--                                <div class="rating">--}}
+                                {{--                                    <i class="fas fa-star filled"></i>--}}
+                                {{--                                    <i class="fas fa-star filled"></i>--}}
+                                {{--                                    <i class="fas fa-star filled"></i>--}}
+                                {{--                                    <i class="fas fa-star filled"></i>--}}
+                                {{--                                    <i class="fas fa-star"></i>--}}
+                                {{--                                    <span class="d-inline-block average-rating">35</span>--}}
+                                {{--                                </div>--}}
+                                <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i>
+                                    {{ucwords($doctor->address)}}</p>
                             </div>
                         </div>
                     </div>
