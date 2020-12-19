@@ -1,7 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-12 col-12">
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                    </ol>
+                </nav>
+                <h2 class="breadcrumb-title">Checkout</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadcrumb -->
 
 <!-- Page Content -->
 <div class="content">
@@ -147,6 +163,7 @@
     </div>
 
 
+
 <script src="https://js.stripe.com/v3/"></script>
     <script>
         // Custom styling can be passed to options when creating an Element.
@@ -212,10 +229,13 @@
         });
     </script>
 </body>
-<script
+</html>
+
+
+            <script
                 src="https://www.paypal.com/sdk/js?client-id=AXXN3ric8FZZ0G0t2GwgRdGH1No0JV1kvjeSCTAcYJGgrbOYrb2RsvN0TPLRKg4r-u99RJBCICoNYMga">
             </script>
-<script>
+            <script>
             var total = 160;
 
             // Render the PayPal button into #paypal-button-container
@@ -244,6 +264,13 @@
             </script>
 
 
+        </div>
+    </div>
+
+</div>
+
+</div> 
+
 <script type="text/javascript">
 var total = 160;
 
@@ -256,105 +283,35 @@ form.addEventListener('submit', function(e) {
 
 });
 
-	document.getElementById('make-payment').addEventListener('click', function (e) {
+/*	document.getElementById('make-payment').addEventListener('click', function (e) {
 	submitFormData();
-}); 
+}); */ -->
 
-<function submitFormData() {
+<!-- <function submitFormData() {
     console.log('Payment Button clicked');
 
     alert('Transaction completed');
     document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/';
     window.location.href = "{{ route('payment-success') }}";
-<<<<<<< HEAD
 } 
-</script> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-<!-- /Page Content -->
-
-
-
-
-
+</script>  
 
 
 @endsection
-=======
-}
+
+
+<!--  
+<script async
+src="https://pay.google.com/gp/p/js/pay.js"
+onload="onGooglePayLoaded">
 </script>
->>>>>>> e4b37e48f5a7fcc9cbfb1384c009bb697121258c
+<script >function onGooglePayLoaded(){
+    const googlePayClient=
+    new google.payments.api.PaymentClient({
+        enviroment:'TEST'
+    });
+}
+
+</script>
+
+ -->

@@ -62,11 +62,7 @@
 
 <body>
     <div id="app">
-<<<<<<< HEAD
-        <nav class="navbar navbar-expand-md  bg-white shadow-sm">
-=======
         <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color:#15558d;">
->>>>>>> e4b37e48f5a7fcc9cbfb1384c009bb697121258c
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Doctor Appointment') }}
