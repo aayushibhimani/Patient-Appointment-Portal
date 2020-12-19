@@ -399,7 +399,7 @@
     }
     </style>
     <!-- Favicons -->
-    <link type="image/x-icon" href="assets/img/favicon.png" rel="icon">
+    <!-- <link type="image/x-icon" href="assets/img/favicon.png" rel="icon"> -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">

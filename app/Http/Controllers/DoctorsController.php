@@ -53,7 +53,7 @@ class DoctorsController extends Controller
     {
         //will display the schedule page
         $doctor_details = Doctor::where('user_id',auth()->user()->id)->get();
-        $doctor= $doctor_details[0];
+        $doctor= $doctor_details[0];        
         $doctor_id = $doctor->id;
         $schedules = Schedule::where('doctor_id', $doctor_id)->get();
         //$schedules = $schedules_details[1];
