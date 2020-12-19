@@ -4,7 +4,6 @@
 
 
 <!-- Page Content -->
-{{--{{dd($doctor)}}--}}
 <div class="content">
     <div class="container">
 
@@ -15,197 +14,88 @@
                     <div class="card-body">
                         <div class="booking-doc-info">
                             <a href="doctor-profile.html" class="booking-doc-img">
-                                {{--                                {{dd($doctor)}}--}}
                                 <img src="{{asset('images/uploads/doctors/'.$doctor->profile_pic)}}" alt="User Image">
                             </a>
                             <div class="booking-info">
                                 <h4><a href="#">Dr. {{ucwords($user->name)}}</a></h4>
-                                {{--                                <div class="rating">--}}
-                                {{--                                    <i class="fas fa-star filled"></i>--}}
-                                {{--                                    <i class="fas fa-star filled"></i>--}}
-                                {{--                                    <i class="fas fa-star filled"></i>--}}
-                                {{--                                    <i class="fas fa-star filled"></i>--}}
-                                {{--                                    <i class="fas fa-star"></i>--}}
-                                {{--                                    <span class="d-inline-block average-rating">35</span>--}}
-                                {{--                                </div>--}}
                                 <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i>
                                     {{ucwords($doctor->clinic_address)}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-sm-4 col-md-6">
-                        <h4 class="mb-1">11 November 2019</h4>
-                        <p class="text-muted">Monday</p>
-                    </div>
-                    <div class="col-12 col-sm-8 col-md-6 text-sm-right">
-                        <div class="bookingrange btn btn-white btn-sm mb-3">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span></span>
-                            <i class="fas fa-chevron-down ml-2"></i>
-                        </div>
-                    </div>
-                </div>
                 <!-- Schedule Widget -->
                 <div class="card booking-schedule schedule-widget">
+                  
+<?php
 
-                    <!-- Schedule Header -->
-                    <div class="schedule-header">
-                        <div class="row">
-                            <div class="col-md-12">
 
-                                <!-- Day Slot -->
-                                <div class="day-slot">
-                                    <ul>
-                                        <li class="left-arrow">
-                                            <a href="#">
-                                                <i class="fa fa-chevron-left"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <span>Mon</span>
-                                            <span class="slot-date">11 Nov <small class="slot-year">2019</small></span>
-                                        </li>
-                                        <li>
-                                            <span>Tue</span>
-                                            <span class="slot-date">12 Nov <small class="slot-year">2019</small></span>
-                                        </li>
-                                        <li>
-                                            <span>Wed</span>
-                                            <span class="slot-date">13 Nov <small class="slot-year">2019</small></span>
-                                        </li>
-                                        <li>
-                                            <span>Thu</span>
-                                            <span class="slot-date">14 Nov <small class="slot-year">2019</small></span>
-                                        </li>
-                                        <li>
-                                            <span>Fri</span>
-                                            <span class="slot-date">15 Nov <small class="slot-year">2019</small></span>
-                                        </li>
-                                        <li>
-                                            <span>Sat</span>
-                                            <span class="slot-date">16 Nov <small class="slot-year">2019</small></span>
-                                        </li>
-                                        <li>
-                                            <span>Sun</span>
-                                            <span class="slot-date">17 Nov <small class="slot-year">2019</small></span>
-                                        </li>
-                                        <li class="right-arrow">
-                                            <a href="#">
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- /Day Slot -->
+$spots = ['Sunday'=>[], 'Monday'=>[], 'Tuesday'=>[], 'Wednesday'=>[], 'Thursday'=>[],'Friday'=>[], 'Saturday'=>[]];
+$days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday'];
 
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Schedule Header -->
+for($t=0;$t<$total;$t++) {
+    switch(array_search($schedules[$t]->day, $days)){
+        case 0:
+            $spots['Sunday'][] = $schedules[$t];
+            break;
+        case 1:
+            $spots['Monday'][] = $schedules[$t];
+            break;
+        case 2:
+            $spots['Tuesday'][] = $schedules[$t];
+            break;
+        case 3:
+            $spots['Wednesday'][] = $schedules[$t];
+            break;
+        case 4:
+            $spots['Thursday'][] = $schedules[$t];
+            break;
+        case 5:
+            $spots['Friday'][] = $schedules[$t];
+            break;
+        case 6:
+            $spots['Saturday'][] = $schedules[$t];
+            break;
+    }    
+}
 
-                    <!-- Schedule Content -->
-                    <div class="schedule-cont">
-                        <div class="row">
-                            <div class="col-md-12">
+$rows = max(count($spots['Sunday']),count($spots['Monday']),count($spots['Tuesday']),count($spots['Wednesday']),count($spots['Thursday']),count($spots['Friday']),count($spots['Saturday']));
 
-                                <!-- Time Slot -->
-                                <div class="time-slot">
-                                    <ul class="clearfix">
-                                        <li>
-                                            <a class="timing" href="#">
-                                                <span>9:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>10:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>11:00</span> <span>AM</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="timing" href="#">
-                                                <span>9:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>10:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>11:00</span> <span>AM</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="timing" href="#">
-                                                <span>9:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>10:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>11:00</span> <span>AM</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="timing" href="#">
-                                                <span>9:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>10:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>11:00</span> <span>AM</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="timing" href="#">
-                                                <span>9:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing selected" href="#">
-                                                <span>10:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>11:00</span> <span>AM</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="timing" href="#">
-                                                <span>9:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>10:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>11:00</span> <span>AM</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="timing" href="#">
-                                                <span>9:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>10:00</span> <span>AM</span>
-                                            </a>
-                                            <a class="timing" href="#">
-                                                <span>11:00</span> <span>AM</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- /Time Slot -->
 
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Schedule Content -->
+?>
+
+<table class="table text-center table-borderless">
+    <thead>
+        <tr style="border:1px solid slategray">
+        <?php foreach($days as $day){ ?>
+            <td><?php echo $day ?></td>
+            <?php } ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php for($i=0;$i<$rows;$i++){ ?>
+        <tr>
+        <?php foreach($days as $day){ ?>
+            <td> 
+                <?php if(array_key_exists($i, $spots[$day])){?>
+                <button class="btn btn-danger btn-sm" style="font-size:14px;" type="button" data-toggle="modal" data-target="#spot_<?php echo $spots[$day][$i]->id  ?>">
+                    <?php echo $spots[$day][$i]->start_time.' - '.$spots[$day][$i]->end_time ?>
+                </button>
+                <?php } ?>
+            </td>   
+            <?php } ?>         
+        </tr>
+        <?php } ?>
+    </tbody>
+</table>                    
 
                 </div>
                 <!-- /Schedule Widget -->
 
                 <!-- Submit Section -->
-                <div class="submit-section proceed-btn text-right">
+                <!-- <div class="submit-section proceed-btn text-right">
                     <a href="{{route('checkout')}}" class="btn btn-primary submit-btn">Proceed to Pay</a>
-                </div>
+                </div> -->
                 <!-- /Submit Section -->
 
             </div>
@@ -213,5 +103,35 @@
     </div>
 
 </div>
-<!-- /Page Content -->
+
+<!-- /Add Time Slot Modal -->
+
+
+<?php for($t=0;$t<$total;$t++) { ?>
+<!-- Modal -->
+<div class="modal fade" id="spot_<?php echo $schedules[$t]->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <h5>Do you want to book this spot?</h5>
+        <div>ID: <?php print_r($schedules[$t]->id); ?></div>
+        <div>TIMING:  <?php echo $schedules[$t]->start_time.' - '.$schedules[$t]->end_time ?></div>        
+
+      </div>
+      <div class="modal-footer">
+      <form action="" method="">
+      <input type="hidden" name="schedule_id" value="<?php print_r($schedules[$t]->id); ?>">
+        <button type="submit" class="btn btn-primary">Confirm</button>
+        </form>        
+      </div>
+    </div>
+  </div>
+</div>
+<?php } ?>
 @endsection
