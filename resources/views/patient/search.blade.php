@@ -23,22 +23,27 @@
                         <div class="filter-widget">
                             <h4>Gender</h4>
                             <div class="button-group filter-button-group">
-  <button class="btn btn-outline-secondary" data-filter="*">All</button>
-  <button class="btn btn-outline-secondary" data-filter=".Male">Male</button>
-  <button class="btn btn-outline-secondary" data-filter=".Female">Female</button>
-</div>
+                                <button class="btn btn-outline-secondary" data-filter="*">All</button>
+                                <button class="btn btn-outline-secondary" data-filter=".Male">Male</button>
+                                <button class="btn btn-outline-secondary" data-filter=".Female">Female</button>
+                            </div>
                         </div>
                         <div class="filter-widget">
                             <h4>Select Specialist</h4>
                             <div class="button-group filter-button-group">
-  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter="*">All</button>
-  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter=".Urology">Urology</button>
-  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter=".ENT">ENT</button>
-  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter=".Cancer">Cancer</button>
-  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter=".Dentist">Dentist</button>
-  <button class="btn btn-outline-secondary btn-block btn-sm" data-filter=".Opthalmologist">Opthalmologist</button>
-</div>                            
-                        </div>                        
+                                <button class="btn btn-outline-secondary btn-block btn-sm" data-filter="*">All</button>
+                                <button class="btn btn-outline-secondary btn-block btn-sm"
+                                    data-filter=".Urology">Urology</button>
+                                <button class="btn btn-outline-secondary btn-block btn-sm"
+                                    data-filter=".ENT">ENT</button>
+                                <button class="btn btn-outline-secondary btn-block btn-sm"
+                                    data-filter=".Cancer">Cancer</button>
+                                <button class="btn btn-outline-secondary btn-block btn-sm"
+                                    data-filter=".Dentist">Dentist</button>
+                                <button class="btn btn-outline-secondary btn-block btn-sm"
+                                    data-filter=".Opthalmologist">Opthalmologist</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- /Search Filter -->
@@ -48,7 +53,8 @@
             <div class="col-md-12 col-lg-8 col-xl-9 doctor-container">
 
                 <!-- Doctor Widget -->
-                @for($t=0;$t<$total;$t++) <div class="card doctor-card {{$doctors[$t]->gender}}  {{ str_replace(',',' ',$doctors[$t]->specialization) }}">  
+                @for($t=0;$t<$total;$t++) <div
+                    class="card doctor-card {{$doctors[$t]->gender}}  {{ str_replace(',',' ',$doctors[$t]->specialization) }}">
                     <div class="card-body">
                         <div class="doctor-widget">
                             <div class="doc-info-left">
@@ -99,7 +105,7 @@
                     </div>
             </div>
             @endfor
-            <!-- /Doctor Widget -->            
+            <!-- /Doctor Widget -->
         </div>
     </div>
 
