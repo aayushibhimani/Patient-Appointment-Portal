@@ -679,7 +679,7 @@
                                 <li><a href="{{route('search')}}">Search for Doctors</a></li>
                                 <li><a href="{{route('login')}}">Login</a></li>
                                 <li><a href="{{route('register')}}">Register</a></li>
-                                <li><a href="{{route('booking')}}">Booking</a></li>
+                                <li><a href="#">Booking</a></li>
                                 <li><a href="{{route('home')}}">Patient Dashboard</a></li>
                             </ul>
                         </div>

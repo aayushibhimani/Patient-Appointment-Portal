@@ -39,6 +39,7 @@ Route::get('/booking-success', [App\Http\Controllers\PatientsController::class, 
 
 
 
+
 Route::middleware(['auth','doctor'])->group(function(){
    Route::get('/appointments', [App\Http\Controllers\DoctorsController::class, 'appointments'])->name('doctor-appointments');
     Route::get('/my-patients', [App\Http\Controllers\DoctorsController::class, 'patients'])->name('doctor-patients');
@@ -55,6 +56,7 @@ Route::middleware(['auth','doctor'])->group(function(){
 
 Route::get('/search', [App\Http\Controllers\PatientsController::class, 'search'])->name('search');
 Route::middleware(['auth','patient'])->group(function(){
+    Route::get('/search', [App\Http\Controllers\PatientsController::class, 'search'])->name('search');
     Route::get('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'profileSettings'])->name('patient-profile-settings');
     Route::post('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'store'])->name('patient-store-settings');
 

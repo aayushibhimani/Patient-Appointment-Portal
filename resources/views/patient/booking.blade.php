@@ -4,6 +4,7 @@
 
 
 <!-- Page Content -->
+{{--{{dd($doctor)}}--}}
 <div class="content">
     <div class="container">
 
@@ -14,6 +15,7 @@
                     <div class="card-body">
                         <div class="booking-doc-info">
                             <a href="doctor-profile.html" class="booking-doc-img">
+                                {{--                                {{dd($doctor)}}--}}
                                 <img src="{{asset('images/uploads/doctors/'.$doctor->profile_pic)}}" alt="User Image">
                             </a>
                             <div class="booking-info">
@@ -27,7 +29,7 @@
                                 {{--                                    <span class="d-inline-block average-rating">35</span>--}}
                                 {{--                                </div>--}}
                                 <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i>
-                                    {{ucwords($doctor->address)}}</p>
+                                    {{ucwords($doctor->clinic_address)}}</p>
                             </div>
                         </div>
                     </div>
