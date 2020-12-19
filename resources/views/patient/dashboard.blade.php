@@ -7,11 +7,43 @@
 use Illuminate\Support\Facades\Auth;
 use App\Models\Appointment;
 use \App\Models\Patient;
+use \App\Models\Doctor;
+use \App\Models\User;
 //dd(Patient::all());
+
 $patient = Patient::where('user_id',auth()->user()->id)->get();
 //dd($patient);
 $appointments = Appointment::where('patient_id', $patient[0]->id)->get();
+$doc_app = Appointment::select('doctor_id')->where('patient_id', $patient[0]->id)->get();
+//$appts = Appointment::select('doctor_id')->whereIn('')->get();
+//$doctors = Doctor::whereIn('id', $appts)->get();
+//$users_id = Doctor::select('user_id')->whereIn('user_id', $doctors)->get();
+//dd($users_id);
+//$users = User::whereIn('id', $users_id)->get();
+//dd($users);
+////$doc = Doctor::where('user_id', $appts)->get();
+//
+//$user_ids = Doctor::select('user_id')->get();
 
+
+
+
+
+
+    $doc_ids = Doctor::select('id')->whereIn('id', $doc_app)->get();
+//    dd($doc_ids);
+
+
+
+
+
+
+
+
+//$user = User::whereIn('id', $doc)->get();
+$total = count($appointments);
+//dd($total);
+//dd($doctors[0]);
 //dd($appointments);
 ?>
 <div class="content">
@@ -45,16 +77,17 @@ $appointments = Appointment::where('patient_id', $patient[0]->id)->get();
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @for($i=0; $i<$total; $i++)
                                             <tr>
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="{{ route('doctor-profile') }}"
                                                             class="avatar avatar-sm mr-2">
                                                             <img class="avatar-img rounded-circle"
-                                                                src="assets/img/doctors/doctor-thumb-01.jpg"
+                                                                src="#"
                                                                 alt="User Image">
                                                         </a>
-                                                        <a href="{{ route('doctor-profile') }}">Dr. Ruby Perrin
+                                                        <a href="{{ route('doctor-profile') }}">
                                                             <span>Dental</span></a>
                                                     </h2>
                                                 </td>
@@ -78,7 +111,8 @@ $appointments = Appointment::where('patient_id', $patient[0]->id)->get();
                                                         </a>
                                                     </div>
                                                 </td>
-                                            </tr>                                            
+                                            </tr>
+                                            @endfor
                                         </tbody>
                                     </table>
                                 </div>
