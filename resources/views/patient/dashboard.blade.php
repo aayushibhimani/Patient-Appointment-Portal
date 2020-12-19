@@ -110,8 +110,7 @@ $total = count($appointments);
                                                     </div>
                                                 </td>
                                             </tr>
-                                        @endfor
-{{--                                            --}}
+                                            @endfor
                                         </tbody>
                                     </table>
                                 </div>
