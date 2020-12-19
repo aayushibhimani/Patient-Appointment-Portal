@@ -17,8 +17,8 @@ class CreateAppointmentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('doctor_id');
-            $table->date('appointment_date');
-            $table->time('appointment_time');
+            //$table->date('appointment_date');
+            $table->string('appointment_slot');
             $table->string('status')->default('pending');
             $table->timestamps();
 

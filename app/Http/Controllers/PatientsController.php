@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\Patient\UpdateProfileRequest;
+
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Http\Request;
+
+use Razorpay\Api\Api;
+use Session;
 use DB;
+
 
 class PatientsController extends Controller
 {
@@ -18,11 +24,9 @@ class PatientsController extends Controller
      */
     public function index()
     {
+
+//dd($appointments);
         return view('patient/dashboard');
-    }
-    public function viewInvoice()
-    {
-        return view('patient/view-invoice');
     }
     public function profileSettings()
     {
@@ -42,15 +46,42 @@ class PatientsController extends Controller
         $doctor_details = Doctor::where('id', $id)->get();
         $doctor = $doctor_details[0];
         $user = User::where('id', $doctor->user_id)->get();
-        $user = $user[0];        
-        $schedules = Schedule::where('doctor_id', $id)->get();      
-        $total = count($schedules);  
+        $user = $user[0];
+        $schedules = Schedule::where('doctor_id', $id)->get();
+        $total = count($schedules);
         return view('patient/booking')->with('user',$user)->with('doctor', $doctor)->with('schedules', $schedules)->with('total', $total);
     }
+
+
+
     public function checkout()
     {
-        return view('patient/checkout');
+        \Stripe\Stripe::setApiKey('sk_test_51I06bJHOJcfRNvD19LpfaClE4mehNa33spMbNmRSbT48CtY5tgysRZrT1emrUVtUzAYHjD0Vlid3OuQc6GmWp1TT00H9hf7Uw1');
+        $amount = 160;
+        $amount *= 100;
+        $amount = (int) $amount;
+
+        $payment_intent = \Stripe\PaymentIntent::create([
+            'description' => 'Stripe Test Payment',
+            'amount' => $amount,
+            'currency' => 'INR',
+            'description' => 'Payment From Patient',
+            'payment_method_types' => ['card'],
+        ]);
+        $intent = $payment_intent->client_secret;
+        return view('patient/checkout',compact('intent'));
     }
+
+
+
+    public function afterPayment()
+    {
+        return view('payment-success');
+    }
+
+
+
+
 
     public function paymentSuccess()
     {
@@ -142,5 +173,27 @@ class PatientsController extends Controller
     public function destroy(Patient $patient)
     {
         //
+    }
+
+    public function storeBooking(Request $request)
+    {
+//        dd($request->all());
+        $request->validate([
+            'appointment_slot' => 'required'
+        ]);
+        $patient = Patient::where('user_id', auth()->user()->id)->get();
+        $pid = $patient[0]->id;
+//        dd($pid);
+//        $d = Doctor::all();
+//        $did = $d->id;
+
+        $apt = new Appointment();
+        $apt->appointment_slot = $request->appointment_slot;
+        $apt->patient_id = $pid;
+        $apt->doctor_id = $request->doctor_id;
+        $apt->status = 'Pending';
+        $apt->save();
+
+        return view('patient/dashboard');
     }
 }

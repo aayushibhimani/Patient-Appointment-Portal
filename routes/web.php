@@ -61,5 +61,6 @@ Route::middleware(['auth','patient'])->group(function(){
     Route::post('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'store'])->name('patient-store-settings');
 
     Route::get('/booking/{id}', [App\Http\Controllers\PatientsController::class, 'booking'])->name('booking');
+    Route::post('/booking', [App\Http\Controllers\PatientsController::class, 'storeBooking'])->name('storeBooking');
     Route::get('/doctor-profile', [App\Http\Controllers\PatientsController::class, 'doctorProfile'])->name('doctor-profile');
 });

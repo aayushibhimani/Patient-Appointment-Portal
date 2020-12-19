@@ -3,6 +3,17 @@
 @section('content')
 
 <!-- Page Content -->
+<?php
+use Illuminate\Support\Facades\Auth;
+use App\Models\Appointment;
+use \App\Models\Patient;
+//dd(Patient::all());
+$patient = Patient::where('user_id',auth()->user()->id)->get();
+//dd($patient);
+$appointments = Appointment::where('patient_id', $patient[0]->id)->get();
+
+//dd($appointments);
+?>
 <div class="content">
     <div class="container-fluid">
 
