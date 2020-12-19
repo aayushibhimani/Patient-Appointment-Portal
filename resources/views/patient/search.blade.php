@@ -129,12 +129,12 @@
                                             alt="Doctor Image">
                                         @else
                                              <img src="{{asset('images/uploads/doctors/user.png')}}" class="img-fluid"
-                                            alt="Doctor Image"> 
+                                            alt="Doctor Image">
                                         @endif
                                     </a>
                                 </div>
                                 <div class="doc-info-cont">
-                                    <h4 class="doc-name"><a href="doctor-profile.html">Dr.{{$users[$t]->name}}</a></h4>
+                                    <h4 class="doc-name"><a href="doctor-profile.html">Dr. {{$users[$t]->name}}</a></h4>
                                     <p class="doc-speciality">{{$doctors[$t]->education_degree}}</p>
                                     <h6 class="doctor-email">{{$users[$t]->email}}</h6>
                                     <h5 class="doc-department">
@@ -145,7 +145,7 @@
                                     </h5>
                                     <div class="clinic-details">
                                        @if($doctors[$t]->clinic_address)
-                                       <p class="doc-location"><i class="fas fa-map-marker-alt"></i>{{$doctors[$t]->clinic_address}}</p>
+                                       <p class="doc-location"><i class="fas fa-map-marker-alt"></i> {{$doctors[$t]->clinic_address}}</p>
                                        @endif
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@
                                 </div>
                                 <div class="clinic-booking">
                                     <!-- <a class="view-pro-btn" href="doctor-profile.html">View Profile</a> -->
-                                    <a class="apt-btn" href="booking.html">Book Appointment</a>
+                                    <a class="apt-btn" href="{{route('booking', $users[$t]->id)}}">Book Appointment</a>
                                 </div>
                             </div>
                         </div>
