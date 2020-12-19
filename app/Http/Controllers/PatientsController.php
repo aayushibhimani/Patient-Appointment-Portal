@@ -40,11 +40,13 @@ class PatientsController extends Controller
     public function booking($id)
     {
 //        dd($id);
-        $user = User::where('id', $id)->get();
+        $doctor_details = Doctor::where('id', $id)->get();
+        $doctor = $doctor_details[0];
+        $user = User::where('id', $doctor->user_id)->get();
+//        dd($user);
         $user = $user[0];
 //        dd($user);
-        $doctor = Doctor::where('user_id', $id)->get();
-        $doctor = $doctor[0];
+
         //        dd($doctor);
         $schedules = Schedule::where('doctor_id', $id)->get();
 //        dd($schedules);

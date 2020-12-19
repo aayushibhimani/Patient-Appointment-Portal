@@ -60,6 +60,6 @@ Route::middleware(['auth','patient'])->group(function(){
     Route::get('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'profileSettings'])->name('patient-profile-settings');
     Route::post('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'store'])->name('patient-store-settings');
 
-    Route::get('/booking', [App\Http\Controllers\PatientsController::class, 'booking'])->name('booking');
+    Route::get('/booking/{id}', [App\Http\Controllers\PatientsController::class, 'booking'])->name('booking');
     Route::get('/doctor-profile', [App\Http\Controllers\PatientsController::class, 'doctorProfile'])->name('doctor-profile');
 });

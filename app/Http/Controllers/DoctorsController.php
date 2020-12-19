@@ -34,8 +34,9 @@ class DoctorsController extends Controller
     {
         $users = User::all();
         $patients = Patient::all();
+        $total = count($users);
 //        dd($patients);
-        return view('doctor/patients')->with('patients', $patients)->with('users', $users);
+        return view('doctor/patients')->with('patients', $patients)->with('users', $users)->with('total',$total);
     }
     public function profileSettings()
     {
@@ -53,7 +54,7 @@ class DoctorsController extends Controller
     {
         //will display the schedule page
         $doctor_details = Doctor::where('user_id',auth()->user()->id)->get();
-        $doctor= $doctor_details[0];        
+        $doctor= $doctor_details[0];
         $doctor_id = $doctor->id;
         $schedules = Schedule::where('doctor_id', $doctor_id)->get();
         //$schedules = $schedules_details[1];
@@ -65,7 +66,7 @@ class DoctorsController extends Controller
         //used to create new schedule timimgs
         // dd($request->all());
         $size = count(collect($request)->get('start_time'));
-        
+
         $request->validate([
             'day' => 'required',
             'start_time' => 'required',

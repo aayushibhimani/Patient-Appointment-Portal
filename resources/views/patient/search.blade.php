@@ -159,6 +159,7 @@
                                     </ul>
                                 </div>
                                 <div class="clinic-booking">
+{{--                                    {{dd($users[$t]->id)}}--}}
                                     <!-- <a class="view-pro-btn" href="doctor-profile.html">View Profile</a> -->
                                     <a class="apt-btn" href="{{route('booking', $users[$t]->id)}}">Book Appointment</a>
                                 </div>
