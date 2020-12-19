@@ -415,6 +415,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
+
 <body class="antialiased">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -593,38 +594,39 @@
                         <p>Lorem Ipsum is simply dummy text </p>
                     </div>
                     <div class="about-content">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                            page
-                            when looking at its layout. The point of using Lorem Ipsum.</p>
-                        <p>web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
-                            ipsum'
-                            will uncover many web sites still in their infancy. Various versions have evolved over the
-                            years, sometimes</p>
-                        <a href="javascript:;">Read More..</a>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos molestiae labore maxime rem hic
+                            nihil mollitia deleniti, quia tempora incidunt optio eius quasi?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi placeat iste nulla doloremque
+                            ullam! Atque nam autem, cupiditate vel enim laborum ex nostrum iste, harum ipsa est unde
+                            dignissimos. Atque.</p>
+                        <!-- <a href="javascript:;">Read More..</a> -->
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="doctor-slider slider">
 
                         <!-- Doctor Widget -->
-                        <div class="profile-widget">
+                        @for($t=0;$t<$total;$t++) <div class="profile-widget">
                             <div class="doc-img">
-                                <a href="{{route('doctor-profile')}}">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-01.jpg">
-                                </a>
+
+                                @if($doctors[$t]->profile_pic)
+                                <img src="{{asset('images/uploads/doctors/'. $doctors[$t]->profile_pic)}}"
+                                    class="img-fluid" alt="Doctor Image">
+                                @else
+                                <img src="{{asset('images/uploads/doctors/user.png')}}" class="img-fluid"
+                                    alt="Doctor Image">
+                                @endif
+
                             </div>
                             <div class="pro-content">
                                 <h3 class="title">
-                                    <a href="{{route('doctor-profile')}}">Ruby Perrin</a>
+                                    <a href="#">Dr. {{$users[$t]->name}}</a>
                                     <i class="fas fa-check-circle verified"></i>
                                 </h3>
-                                <p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
+                                <p class="speciality">{{$doctors[$t]->specialization}}</p>
                                 <ul class="available-info">
                                     <li>
-                                        <i class="fas fa-map-marker-alt"></i> Florida, USA
-                                    </li>
-                                    <li>
-                                        <i class="far fa-clock"></i> Available on Fri, 22 Mar
+                                        <i class="fas fa-map-marker-alt"></i> {{$doctors[$t]->clinic_address}}
                                     </li>
                                     <li>
                                         <i class="far fa-money-bill-alt"></i> $300 - $1000
@@ -633,234 +635,20 @@
                                 </ul>
                                 <div class="row row-sm">
                                     <div class="col-6">
-                                        <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
+                                        <!-- <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a> -->
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
+                                        <a href="{{route('search')}}" class="btn book-btn">Book Now</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /Doctor Widget -->
-                        <!-- Doctor Widget -->
-                        <div class="profile-widget">
-                            <div class="doc-img">
-                                <a href="{{route('doctor-profile')}}">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-01.jpg">
-                                </a>
-                            </div>
-                            <div class="pro-content">
-                                <h3 class="title">
-                                    <a href="{{route('doctor-profile')}}">Ruby Perrin</a>
-                                    <i class="fas fa-check-circle verified"></i>
-                                </h3>
-                                <p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-                                <ul class="available-info">
-                                    <li>
-                                        <i class="fas fa-map-marker-alt"></i> Florida, USA
-                                    </li>
-                                    <li>
-                                        <i class="far fa-clock"></i> Available on Fri, 22 Mar
-                                    </li>
-                                    <li>
-                                        <i class="far fa-money-bill-alt"></i> $300 - $1000
-                                        <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
-                                    </li>
-                                </ul>
-                                <div class="row row-sm">
-                                    <div class="col-6">
-                                        <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Doctor Widget -->
-                        <!-- Doctor Widget -->
-                        <div class="profile-widget">
-                            <div class="doc-img">
-                                <a href="{{route('doctor-profile')}}">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-01.jpg">
-                                </a>
-                            </div>
-                            <div class="pro-content">
-                                <h3 class="title">
-                                    <a href="{{route('doctor-profile')}}">Ruby Perrin</a>
-                                    <i class="fas fa-check-circle verified"></i>
-                                </h3>
-                                <p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-                                <ul class="available-info">
-                                    <li>
-                                        <i class="fas fa-map-marker-alt"></i> Florida, USA
-                                    </li>
-                                    <li>
-                                        <i class="far fa-clock"></i> Available on Fri, 22 Mar
-                                    </li>
-                                    <li>
-                                        <i class="far fa-money-bill-alt"></i> $300 - $1000
-                                        <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
-                                    </li>
-                                </ul>
-                                <div class="row row-sm">
-                                    <div class="col-6">
-                                        <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Doctor Widget -->
-                        <!-- Doctor Widget -->
-                        <div class="profile-widget">
-                            <div class="doc-img">
-                                <a href="{{route('doctor-profile')}}">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-01.jpg">
-                                </a>
-                            </div>
-                            <div class="pro-content">
-                                <h3 class="title">
-                                    <a href="{{route('doctor-profile')}}">Ruby Perrin</a>
-                                    <i class="fas fa-check-circle verified"></i>
-                                </h3>
-                                <p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-                                <ul class="available-info">
-                                    <li>
-                                        <i class="fas fa-map-marker-alt"></i> Florida, USA
-                                    </li>
-                                    <li>
-                                        <i class="far fa-clock"></i> Available on Fri, 22 Mar
-                                    </li>
-                                    <li>
-                                        <i class="far fa-money-bill-alt"></i> $300 - $1000
-                                        <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
-                                    </li>
-                                </ul>
-                                <div class="row row-sm">
-                                    <div class="col-6">
-                                        <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Doctor Widget -->
-                        <!-- Doctor Widget -->
-                        <div class="profile-widget">
-                            <div class="doc-img">
-                                <a href="{{route('doctor-profile')}}">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-01.jpg">
-                                </a>
-                            </div>
-                            <div class="pro-content">
-                                <h3 class="title">
-                                    <a href="{{route('doctor-profile')}}">Ruby Perrin</a>
-                                    <i class="fas fa-check-circle verified"></i>
-                                </h3>
-                                <p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-                                <ul class="available-info">
-                                    <li>
-                                        <i class="fas fa-map-marker-alt"></i> Florida, USA
-                                    </li>
-                                    <li>
-                                        <i class="far fa-clock"></i> Available on Fri, 22 Mar
-                                    </li>
-                                    <li>
-                                        <i class="far fa-money-bill-alt"></i> $300 - $1000
-                                        <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
-                                    </li>
-                                </ul>
-                                <div class="row row-sm">
-                                    <div class="col-6">
-                                        <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Doctor Widget -->
-                        <!-- Doctor Widget -->
-                        <div class="profile-widget">
-                            <div class="doc-img">
-                                <a href="{{route('doctor-profile')}}">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-01.jpg">
-                                </a>
-                            </div>
-                            <div class="pro-content">
-                                <h3 class="title">
-                                    <a href="{{route('doctor-profile')}}">Ruby Perrin</a>
-                                    <i class="fas fa-check-circle verified"></i>
-                                </h3>
-                                <p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-                                <ul class="available-info">
-                                    <li>
-                                        <i class="fas fa-map-marker-alt"></i> Florida, USA
-                                    </li>
-                                    <li>
-                                        <i class="far fa-clock"></i> Available on Fri, 22 Mar
-                                    </li>
-                                    <li>
-                                        <i class="far fa-money-bill-alt"></i> $300 - $1000
-                                        <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
-                                    </li>
-                                </ul>
-                                <div class="row row-sm">
-                                    <div class="col-6">
-                                        <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Doctor Widget -->
-                        <!-- Doctor Widget -->
-                        <div class="profile-widget">
-                            <div class="doc-img">
-                                <a href="{{route('doctor-profile')}}">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-01.jpg">
-                                </a>
-                            </div>
-                            <div class="pro-content">
-                                <h3 class="title">
-                                    <a href="{{route('doctor-profile')}}">Ruby Perrin</a>
-                                    <i class="fas fa-check-circle verified"></i>
-                                </h3>
-                                <p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-                                <ul class="available-info">
-                                    <li>
-                                        <i class="fas fa-map-marker-alt"></i> Florida, USA
-                                    </li>
-                                    <li>
-                                        <i class="far fa-clock"></i> Available on Fri, 22 Mar
-                                    </li>
-                                    <li>
-                                        <i class="far fa-money-bill-alt"></i> $300 - $1000
-                                        <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
-                                    </li>
-                                </ul>
-                                <div class="row row-sm">
-                                    <div class="col-6">
-                                        <a href="{{route('doctor-profile')}}" class="btn view-btn">View Profile</a>
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="{{route('booking')}}" class="btn book-btn">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Doctor Widget -->
                     </div>
+                    @endfor
+                    <!-- /Doctor Widget -->
+
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- /Popular Section -->

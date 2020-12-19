@@ -6,7 +6,11 @@ $doctor = Doctor::where('user_id', Auth::user()->id)->first();
     <div class="widget-profile pro-widget-content">
         <div class="profile-info-widget">
             <a href="#" class="booking-doc-img">
+                @if($doctor->profile_pic)
                 <img src="{{asset('images/uploads/doctors/'. $doctor->profile_pic)}}" alt="User Image">
+                @else
+                <img src="{{asset('images/uploads/doctors/user.png')}}" alt="User Image">
+                @endif
             </a>
             <div class="profile-det-info">
                 <h3>Dr. {{ucwords(Auth::user()->name)}}</h3>
