@@ -32,7 +32,7 @@ Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'cha
 //Route::get('/patient-dashboard', [App\Http\Controllers\PatientsController::class, 'index'])->name('patient-dashboard');
 Route::get('/patient-view-invoice', [App\Http\Controllers\PatientsController::class, 'viewInvoice'])->name('patient-view-invoice');
 
-Route::get('/checkout', [App\Http\Controllers\PatientsController::class, 'checkout'])->name('checkout');
+Route::get('/checkout/{id}', [App\Http\Controllers\PatientsController::class, 'checkout'])->name('checkout');
 Route::get('/booking-success', [App\Http\Controllers\PatientsController::class, 'paymentSuccess'])->name('payment-success');
 
 

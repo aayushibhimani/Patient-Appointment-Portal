@@ -54,8 +54,19 @@ class PatientsController extends Controller
 
 
 
-    public function checkout()
+    public function checkout($id)
     {
+        $appt = Appointment::where('id', $id)->get();
+        $appt = $appt[0];
+        $doctor = Doctor::where('id', $appt->doctor_id)->get();
+        $doctor = $doctor[0];
+        $user = User::where('id', $doctor->user_id)->get();
+        $user = $user[0];
+        $patient = Patient::where('id', $appt->patient_id)->get();
+        $patient = $patient[0];
+                $user_two = User::where('id', $patient->user_id)->get();
+        $user_two = $user_two[0];        
+
         \Stripe\Stripe::setApiKey('sk_test_51I06bJHOJcfRNvD19LpfaClE4mehNa33spMbNmRSbT48CtY5tgysRZrT1emrUVtUzAYHjD0Vlid3OuQc6GmWp1TT00H9hf7Uw1');
         $amount = 160;
         $amount *= 100;
@@ -69,7 +80,7 @@ class PatientsController extends Controller
             'payment_method_types' => ['card'],
         ]);
         $intent = $payment_intent->client_secret;
-        return view('patient/checkout',compact('intent'));
+        return view('patient/checkout',compact('intent', 'appt', 'doctor','patient', 'user', 'user_two'));
     }
 
 

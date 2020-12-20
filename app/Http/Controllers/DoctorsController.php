@@ -194,5 +194,3 @@ class DoctorsController extends Controller
         return redirect(route('home'));
     }
 }
-
-
