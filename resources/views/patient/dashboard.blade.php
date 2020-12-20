@@ -69,7 +69,7 @@
 
                                                             <img class="avatar-img rounded-circle"
                                                                 src="{{asset('images/uploads/doctors/'. $doctor_details[$t][0]->profile_pic)}}"
-                                                                src="" alt="User Image">
+                                                                src="" >
                                                         </a>
                                                         <a href="{{ route('doctor-profile') }}">Dr.
                                                             {{$user_details[$t][0]}}

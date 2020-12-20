@@ -94,6 +94,11 @@ class PatientsController extends Controller
         return view('patient/payment-success');
     }
 
+    public function viewInvoice()
+    {
+        return view('view-invoice');
+    }
+
     public function search()
     {
         $doctors = DB::table('doctors')->get();        

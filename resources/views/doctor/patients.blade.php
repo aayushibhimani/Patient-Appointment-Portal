@@ -24,9 +24,9 @@
                             <div class="card-body">
                                 <div class="pro-widget-content">
                                     <div class="profile-info-widget">
-                                        <a href="{{asset('./images/uploads/doctors/'.$p->profile_pic)}}"
+                                        <a href="{{asset('./images/uploads/patients/'.$p->profile_pic)}}"
                                             class="booking-doc-img">
-                                            <img src="{{asset('./images/uploads/doctors/'.$p->profile_pic)}}"
+                                            <img src="{{asset('./images/uploads/patients/'.$p->profile_pic)}}"
                                                 alt="User Image">
                                         </a>
                                         <div class="profile-det-info">

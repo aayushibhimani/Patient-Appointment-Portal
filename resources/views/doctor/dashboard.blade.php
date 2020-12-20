@@ -19,7 +19,7 @@ $appointments = Appointment::where('doctor_id', $doctor[0]->id)->get();
 
 $pat_ids = Appointment::select('doctor_id')->where('doctor_id',$doctor[0]->id)->get();
 foreach($pat_ids as $pat_id){
-    dd($pat_id);
+    // dd($pat_id);
     $t = $pat_id->doctor_id;
     $patients = Patient::whereIn('id',$pat_ids)->get();
     array_push($patient_details,$patients);
@@ -116,8 +116,7 @@ $total = count($user_details);
                                                             <h2 class="table-avatar">
                                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                                         class="avatar-img rounded-circle"
-                                                                        src="{{asset('images/uploads/doctors/'. $patient_details[$t][0]->profile_pic)}}"
-                                                                        alt="User Image"> {{$user_details[$t][0]}}</a>
+                                                                        src="{{asset('images/uploads/doctors/'. $patient_details[$t][0]->profile_pic)}}" > {{$user_details[$t][0]}}</a>
                                                                 <a href="patient-profile.html">
                                                                     <span></span></a>
                                                             </h2>
