@@ -15,15 +15,21 @@ $user_details = [];
 $doctor = Doctor::where('user_id', auth()->user()->id)->get();
 $appointments = Appointment::where('doctor_id', $doctor[0]->id)->get();
 
+//$user_names = User::where('id',$doctors[0]->user_id)->pluck('name');
 
 $pat_ids = Appointment::select('doctor_id')->where('doctor_id',$doctor[0]->id)->get();
 foreach($pat_ids as $pat_id){
-    $patients = Patient::whereIn('id',$pat_id)->get();
+//    dd($pat_id);
+    $t = $pat_id->doctor_id;
+    $patients = Patient::whereIn('id',$pat_ids)->get();
     array_push($patient_details,$patients);
-    $user_ids = Patient::select('user_id')->where('id',2)->get();
+    $user_ids = Patient::select('user_id')->where('id',$pat_id->doctor_id)->get();
+//    dd($user_ids);
+//    $user_ids= Patient::where('id', $pat_id);
     $user_names = User::where('id',$patients[0]->user_id)->pluck('name');
     array_push($user_details,$user_names);
 }
+//dd($user_ids);
 $total = count($user_details);
 ?>
 <div class="content">
@@ -113,7 +119,7 @@ $total = count($user_details);
 
                                                             <th>Slot</th>
 
-                                                            <th>Actions</th>
+                                                            <th>Status</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -136,19 +142,33 @@ $total = count($user_details);
 
                                                             <td >
                                                                 <div class="table-action">
-                                                                    <a href="javascript:void(0);"
-                                                                        class="btn btn-sm bg-info-light">
-                                                                        <i class="far fa-eye"></i> View
-                                                                    </a>
 
-                                                                    <a href="javascript:void(0);"
-                                                                        class="btn btn-sm bg-success-light">
-                                                                        <i class="fas fa-check"></i> Accept
-                                                                    </a>
-                                                                    <a href="javascript:void(0);"
-                                                                        class="btn btn-sm bg-danger-light">
-                                                                        <i class="fas fa-times"></i> Cancel
-                                                                    </a>
+                                                                    <form action="{{route('accept', $appointments[$t]->id)}}" method="POST">
+                                                                        @csrf
+                                                                        @method('PUT')
+                                                                        <input type="hidden" name="status" value="{{$appointments[$t]->id}}">
+@if($appointments[$t]->status == 'Confirmed' || $appointments[$t]->status == 'Pending')
+                                                                        <button class="btn btn-sm bg-success-light">
+                                                                            <i class="fas fa-check"></i> Accept
+                                                                        </button>
+@endif
+
+                                                                    </form>
+
+                                                                    <form action="{{route('reject', $appointments[$t]->id)}}" method="POST">
+                                                                        @csrf
+                                                                        @method('PUT')
+
+                                                                        <input type="hidden" name="status" value="{{$appointments[$t]->id}}">
+                                                                        @if($appointments[$t]->status == 'Reject' || $appointments[$t]->status == 'Pending')
+                                                                        <button class="btn btn-sm bg-danger-light">
+                                                                            <i class="fas fa-times"></i> Reject
+                                                                        </button>
+@endif
+
+
+
+                                                                    </form>
                                                                 </div>
                                                             </td>
                                                         </tr>

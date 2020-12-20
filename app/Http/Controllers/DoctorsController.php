@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Http\Requests\Doctor\UpdateDoctorRequest;
 use App\Http\Requests\Schedule\CreateScheduleRequest;
@@ -170,4 +171,28 @@ class DoctorsController extends Controller
         Schedule::destroy($id);
         return redirect()->back();
     }
+//    Accept reject
+    public function accept(Request $request,$id)
+    {
+//        dd($request->all());
+//        Page::where('id', $id)->update(array('image' => 'asdasd'));
+        $appointment = Appointment::where('id', $request->status);
+        $appointment->update(array('status'=>'Confirmed'));
+//        return view('home');
+        return redirect(route('home'));
+//
+//        DB::table('appointments')
+//            ->where('id', 'status')
+//            ->update(['title' => "Updated Title"]);
+    }
+
+    public function reject(Request $request)
+    {
+        $appointment = Appointment::where('id', $request->status);
+        $appointment->update(array('status'=>'Reject'));
+//        return view('home');
+        return redirect(route('home'));
+    }
 }
+
+

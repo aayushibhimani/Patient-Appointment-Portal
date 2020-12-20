@@ -52,6 +52,9 @@ Route::middleware(['auth','doctor'])->group(function(){
     //Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'show'])->name('show-settings');
     Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('doctor-store-settings');
     Route::delete('/destroy/{id}', [App\Http\Controllers\DoctorsController::class, 'destroy'])->name('destroy');
+
+    Route::put('/accept/{id}', [App\Http\Controllers\DoctorsController::class, 'accept'])->name('accept');
+    Route::put('/reject/{id}', [App\Http\Controllers\DoctorsController::class, 'reject'])->name('reject');
 });
 
 Route::get('/search', [App\Http\Controllers\PatientsController::class, 'search'])->name('search');
