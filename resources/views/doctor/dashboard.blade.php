@@ -19,7 +19,7 @@ $appointments = Appointment::where('doctor_id', $doctor[0]->id)->get();
 
 $pat_ids = Appointment::select('doctor_id')->where('doctor_id',$doctor[0]->id)->get();
 foreach($pat_ids as $pat_id){
-//    dd($pat_id);
+    dd($pat_id);
     $t = $pat_id->doctor_id;
     $patients = Patient::whereIn('id',$pat_ids)->get();
     array_push($patient_details,$patients);
