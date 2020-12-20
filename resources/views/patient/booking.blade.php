@@ -123,7 +123,7 @@
                     <form action="{{route('storeBooking')}}" method="POST">
                         @csrf
                         <h5>Do you want to book this spot?</h5>
-                        <div><b>Appointment ID: </b><?php print_r($schedules[$t]->id); ?></div>
+                        <div><b>Appointment ID:</b> #PAT00<?php print_r($schedules[$t]->id); ?></div>
                         <label><b>TIMING:  </b></label>
                         <input name="appointment_slot" value="<?php echo $schedules[$t]->start_time.' - '.$schedules[$t]->end_time ?>" /><br>
                     {{--          <label><B>STATUS: </B> </label>--}}
