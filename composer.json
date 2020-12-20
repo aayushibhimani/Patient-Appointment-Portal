@@ -15,10 +15,6 @@
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.1",
-<<<<<<< HEAD
-        "razorpay/razorpay": "2.*",
-=======
->>>>>>> bc5b808bcfe955defe30f6cef97c39b376acc81b
         "stripe/stripe-php": "^7.67"
     },
     "require-dev": {
