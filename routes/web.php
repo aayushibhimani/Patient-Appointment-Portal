@@ -32,7 +32,7 @@ Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'cha
 //Route::get('/patient-dashboard', [App\Http\Controllers\PatientsController::class, 'index'])->name('patient-dashboard');
 Route::get('/patient-view-invoice', [App\Http\Controllers\PatientsController::class, 'viewInvoice'])->name('patient-view-invoice');
 
-Route::get('/checkout', [App\Http\Controllers\PatientsController::class, 'checkout'])->name('checkout');
+Route::get('/checkout/{id}', [App\Http\Controllers\PatientsController::class, 'checkout'])->name('checkout');
 Route::get('/booking-success', [App\Http\Controllers\PatientsController::class, 'paymentSuccess'])->name('payment-success');
 
 
@@ -52,6 +52,9 @@ Route::middleware(['auth','doctor'])->group(function(){
     //Route::get('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'show'])->name('show-settings');
     Route::post('/doctor-profile-settings', [App\Http\Controllers\DoctorsController::class, 'store'])->name('doctor-store-settings');
     Route::delete('/destroy/{id}', [App\Http\Controllers\DoctorsController::class, 'destroy'])->name('destroy');
+
+    Route::put('/accept/{id}', [App\Http\Controllers\DoctorsController::class, 'accept'])->name('accept');
+    Route::put('/reject/{id}', [App\Http\Controllers\DoctorsController::class, 'reject'])->name('reject');
 });
 
 Route::get('/search', [App\Http\Controllers\PatientsController::class, 'search'])->name('search');
@@ -61,5 +64,6 @@ Route::middleware(['auth','patient'])->group(function(){
     Route::post('/patient-profile-settings', [App\Http\Controllers\PatientsController::class, 'store'])->name('patient-store-settings');
 
     Route::get('/booking/{id}', [App\Http\Controllers\PatientsController::class, 'booking'])->name('booking');
+    Route::post('/booking', [App\Http\Controllers\PatientsController::class, 'storeBooking'])->name('storeBooking');
     Route::get('/doctor-profile', [App\Http\Controllers\PatientsController::class, 'doctorProfile'])->name('doctor-profile');
 });

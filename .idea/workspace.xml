@@ -22,8 +22,7 @@
     <list default="true" id="8eeddc15-032b-42d0-bd0d-38893ccde5c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DoctorsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DoctorsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/patient/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/patient/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/doctor/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctor/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,6 +145,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/stripe/stripe-php" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lmTKRiYzNQNUlywOChfYRyCQPE" />
@@ -226,13 +226,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608201336912" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1608394149857">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1608423824388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1608394149857" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1608386341584">
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1608423824388" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1608414217727">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1608386341584" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1608414217727" />
   </component>
 </project>

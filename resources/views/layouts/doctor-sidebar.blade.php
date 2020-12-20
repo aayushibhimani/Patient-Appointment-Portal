@@ -29,12 +29,12 @@ $doctor = Doctor::where('user_id', Auth::user()->id)->first();
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ route('doctor-appointments') }}">
                         <i class="fas fa-calendar-check"></i>
                         <span>Appointments</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ route('doctor-patients') }}">
                         <i class="fas fa-user-injured"></i>

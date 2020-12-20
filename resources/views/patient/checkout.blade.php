@@ -35,22 +35,15 @@
 
                         <!-- Booking Doctor Info -->
                         <div class="booking-doc-info">
+
                             <a href="doctor-profile.html" class="booking-doc-img">
-                                <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+                                <img src="{{asset('images/uploads/doctors/'. $doctor->profile_pic)}}" alt="User Image">
                             </a>
                             <div class="booking-info">
-                                <h4><a href="doctor-profile.html">Dr. Darren Elder</a></h4>
-                                <div class="rating">
-                                    <i class="fas fa-star filled"></i>
-                                    <i class="fas fa-star filled"></i>
-                                    <i class="fas fa-star filled"></i>
-                                    <i class="fas fa-star filled"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="d-inline-block average-rating">35</span>
-                                </div>
+                                <h4><a href="doctor-profile.html">Dr. {{ $user->name }}</a></h4>
                                 <div class="clinic-details">
                                     <p class="doc-location"><i class="fas fa-map-marker-alt"></i>
-                                        Newyork, USA</p>
+                                        {{$doctor->clinic_address}}</p>
                                 </div>
                             </div>
                         </div>
@@ -59,19 +52,19 @@
                         <div class="booking-summary">
                             <div class="booking-item-wrap">
                                 <ul class="booking-date">
-                                    <li>Date <span>16 Nov 2019</span></li>
-                                    <li>Time <span>10:00 AM</span></li>
+                                    <li>Date <span>{{$appt->day}}</span></li>
+                                    <li>Time <span>{{$appt->appointment_slot}}</span></li>
                                 </ul>
                                 <ul class="booking-fee">
-                                    <li>Consulting Fee <span>$100</span></li>
-                                    <li>Booking Fee <span>$10</span></li>
-                                    <li>Video Call <span>$50</span></li>
+                                    <li>Consulting Fee <span>Rs.100</span></li>
+                                    <li>Booking Fee <span>Rs.10</span></li>
+                                    <li>Video Call <span>Rs.50</span></li>
                                 </ul>
                                 <div class="booking-total">
                                     <ul class="booking-total-list">
                                         <li>
                                             <span>Total</span>
-                                            <span class="total-cost">$160</span>
+                                            <span class="total-cost">Rs.160</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -117,7 +110,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="exist-customer">Existing Customer? <a href="#">Click here to login</a></div>
                             </div>
 
                             
@@ -139,28 +131,6 @@
                                     Enter your credit card information
                                 </label>
                             </div>
-                            <div class="card-body">
-                                <div id="card-element">
-                                <!-- A Stripe Element will be inserted here. -->
-                                </div>
-                                <!-- Used to display form errors. -->
-                                <div id="card-errors" role="alert"></div>
-                                <input type="hidden" name="plan" value="" />
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                        <button
-                        id="card-button"
-                        class="btn btn-dark"
-                        type="submit"
-                        data-secret="{{ $intent }}"
-                        > Pay </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
