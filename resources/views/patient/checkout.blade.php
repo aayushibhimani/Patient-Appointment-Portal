@@ -63,7 +63,7 @@
                     <div class="card-body">
 
                         <!-- Checkout Form -->
-                        <<form action="route('payment-success')"> 
+                        <<form action="{{route('payment-success')}}"> 
 
                             <!-- Personal Information -->
                             <div class="info-widget">
@@ -114,7 +114,7 @@
 
             </div>
 
-
+<!-- 
             <script
                 src="https://www.paypal.com/sdk/js?client-id=AXXN3ric8FZZ0G0t2GwgRdGH1No0JV1kvjeSCTAcYJGgrbOYrb2RsvN0TPLRKg4r-u99RJBCICoNYMga">
             </script>
@@ -152,7 +152,7 @@
 
 </div>
 
-</div>
+</div> -->
 <!-- /Page Content -->
 
 
