@@ -156,7 +156,7 @@
 <!-- /Page Content -->
 
 
-@endsection
+
 
 
 
@@ -238,8 +238,8 @@ function submitFormData() {
 
 
 		alert('Transaction completed');
-		
-		document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/';
 		window.location.href = "{{ route('payment-success') }}";
 	}
 </script>
+
+@endsection
