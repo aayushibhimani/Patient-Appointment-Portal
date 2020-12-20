@@ -33,7 +33,7 @@ Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'cha
 Route::get('/patient-view-invoice', [App\Http\Controllers\PatientsController::class, 'viewInvoice'])->name('patient-view-invoice');
 
 Route::get('/checkout/{id}', [App\Http\Controllers\PatientsController::class, 'checkout'])->name('checkout');
-Route::get('/booking-success', [App\Http\Controllers\PatientsController::class, 'paymentSuccess'])->name('payment-success');
+Route::get('/payment-success', [App\Http\Controllers\PatientsController::class, 'paymentSuccess'])->name('payment-success');
 
 
 

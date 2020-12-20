@@ -87,13 +87,8 @@ class PatientsController extends Controller
 
     public function afterPayment()
     {
-        return view('payment-success');
+        return view('patient/payment-success');
     }
-
-
-
-
-
     public function paymentSuccess()
     {
         return view('patient/payment-success');

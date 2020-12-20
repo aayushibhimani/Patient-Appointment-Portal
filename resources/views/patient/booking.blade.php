@@ -91,14 +91,6 @@
                     </table>
 
                 </div>
-                <!-- /Schedule Widget -->
-
-                <!-- Submit Section -->
-                <!-- <div class="submit-section proceed-btn text-right">
-                    <a href="{{route('checkout')}}" class="btn btn-primary submit-btn">Proceed to Pay</a>
-                </div> -->
-                <!-- /Submit Section -->
-
             </div>
         </div>
     </div>
